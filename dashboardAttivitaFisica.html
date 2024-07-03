@@ -133,12 +133,12 @@
         <div id="pannelloPeso mb-4 mt-5">
             <div class="sottotitoloCategoria d-flex justify-content-left">
                 <h4 class="fw-bold me-4">Peso</h4>
-                <button class="bottoneApriPannelloAggiungi bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold"
+                <button class="bottoneApriPannelloAggiungi bottonePersonalizzato px-4 py-1 mb-4 text-center fw-bold"
                     id="bottoneApriPannelloAggiungiPeso"><i class="bi bi-plus-lg"></i> Aggiungi</button>
             </div>
 
             <!-- INIZIO FORM AGGIUNTA PESO -->
-            <div class="pannelloAggiungiDato p-4 background-light" id="pannelloAggiungiPeso">
+            <div class="pannelloAggiungiDato p-4 background-light mb-4" id="pannelloAggiungiPeso">
 
                 <button class="bottoneChiudiDesktop position-absolute fw-bold" id="bottoneChiudiDesktopPeso"><i
                         class="bi bi-x fw-bold"></i></button><!-- BOTTONE PER DESKTOP -->
@@ -168,16 +168,19 @@
             <div class="row mb-3">
                 <!-- Crea un canvas per il grafico -->
                 <div class="text-dark">
-                    <div class="card border-0 mt-3">
-                        <div class="card">
-                            <div class="card-body text-left">
-                                <h5 class="card-title text-muted">Andamento Peso</h5>
-                                <div class="d-flex justify-content-center align-items-center">
-                                    <canvas id="graficoPeso" height="80"></canvas>
-                                </div>
+                    <div class="card">
+                        <div class="card-body text-left">
+                            <h5 class="card-title text-muted">Andamento Peso</h5>
+                            <div class="d-flex display-inline">
+                                <i class="fa-solid fa-weight-scale fs-3"></i>&nbsp;&nbsp;
+                                <h3 class="card-text mb-1 fw-bold" id="pesoRecente"></h3>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-center align-items-center">
+                                <canvas id="graficoPeso" height="80"></canvas>
                             </div>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
             </div>
         </div>

@@ -4,11 +4,19 @@ function getWeightsData(data, userId) {
     return userData ? userData.weights : [];
 }
 
+// Funzione per impostare il peso più recente
+function impostaPesoRecente(data, userId) {
+
+}
+
 //---[SETTAGGIO GRAFICI]---
 // Funzione per disegnare il grafico del peso in ordine crescente di data
 function graficoPeso(data1, userId) {
     // Ottieni i dati del peso per l'utente specificato
     const weightsData = getWeightsData(data1, userId);
+
+    const pesoRecente = document.getElementById("pesoRecente");
+    pesoRecente.innerHTML = weightsData[0].weight + " KG";
 
     // Ordina i dati per data in ordine crescente
     weightsData.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -42,4 +50,45 @@ function graficoPeso(data1, userId) {
         options: options
     });
 }
+
+
+
+// CONTROLLI PER APERTURA CHIUSURA PANNELLO AGGIUNGI PESO
+document.addEventListener('DOMContentLoaded', function () {
+    var pannelloAggiungiPeso = document.getElementById('pannelloAggiungiPeso');
+    var bottoneApri = document.getElementById('bottoneApriPannelloAggiungiPeso');
+    var bottoneChiudiDesktop = document.getElementById('bottoneChiudiDesktopPeso');
+    var bottoneChiudiMobile = document.getElementById('bottoneChiudiMobilePeso');
+
+    // Funzione per mostrare il pannello aggiungi peso
+    function mostraPannello() {
+        if (pannelloAggiungiPeso.style.display !== 'block') {
+            pannelloAggiungiPeso.style.display = 'block';
+            console.log("Pannello mostrato");
+        }
+    }
+
+    // Funzione per nascondere il pannello aggiungi peso
+    function nascondiPannello() {
+        if (pannelloAggiungiPeso.style.display === 'block') {
+            pannelloAggiungiPeso.style.display = 'none';
+            console.log("Pannello nascosto");
+        }
+    }
+
+    // Evento click sul bottone per aprire il pannello
+    bottoneApri.addEventListener('click', function () {
+        mostraPannello();
+    });
+
+    // Evento click sul bottone per chiudere il pannello (desktop)
+    bottoneChiudiDesktop.addEventListener('click', function () {
+        nascondiPannello();
+    });
+
+    // Evento click sul bottone per chiudere il pannello (mobile)
+    bottoneChiudiMobile.addEventListener('click', function () {
+        nascondiPannello();
+    });
+});
 

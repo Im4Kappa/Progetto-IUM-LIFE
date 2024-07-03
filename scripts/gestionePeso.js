@@ -51,9 +51,23 @@ function aggiungiPesoFormPHP() {
     document.getElementById('btnAggiungiPeso').addEventListener('click', function () {
         const peso = document.getElementById('aggiungiPeso').value;
 
+        // Ottieni la data corrente nel formato "YYYY-MM-DD"
+        const today = new Date();
+        const year = today.getFullYear();
+        let month = today.getMonth() + 1;
+        if (month < 10) {
+            month = `0${month}`; // Aggiunge lo zero iniziale se il mese è inferiore a 10
+        }
+        let day = today.getDate();
+        if (day < 10) {
+            day = `0${day}`; // Aggiunge lo zero iniziale se il giorno è inferiore a 10
+        }
+        const data = `${year}-${month}-${day}`;
+
         const newWeight = {
-            "userId": userId, // Sostituisci con il metodo per ottenere l'userId
-            "weight": parseFloat(peso) // Converte il peso in float
+            "userId": userId,
+            "date": data,
+            "weight": parseFloat(peso)
         };
 
         fetch('php/aggiungiPeso.php', {
@@ -69,13 +83,15 @@ function aggiungiPesoFormPHP() {
                 if (data.message) {
                     // Ricarica la cache e la pagina
                     aggiornaCacheEDati();
-                }
+                }                
             })
             .catch(error => {
                 console.error('Errore:', error);
             });
+            aggiornaCacheEDati();
     });
 }
+
 
 
 // CONTROLLI PER APERTURA CHIUSURA PANNELLO AGGIUNGI PESO

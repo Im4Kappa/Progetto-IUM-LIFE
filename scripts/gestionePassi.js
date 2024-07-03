@@ -277,6 +277,8 @@ function aggiungiPassiFormPHP() {
             .catch(error => {
                 console.error('Errore:', error);
             });
+            aggiornaCacheEDati();
+            aggiornaCacheEDati();
     });
 }
 

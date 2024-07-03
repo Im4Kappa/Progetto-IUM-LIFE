@@ -13,11 +13,12 @@
 
     <!-- import scripts -->
     <script src="scripts/importHeaderNavbar.js"></script> <!-- Importa la Navbar e la Headbar -->
+    <script src="scripts/gestioneUtente.js"></script>
     <script src="scripts/gestionePassi.js"></script>
     <script src="scripts/gestionePeso.js"></script>
-    <script src="scripts/userSession.js"></script>
     <script src="scripts/caricaJSON.js"></script>
     <script src="scripts/utils.js"></script>
+    <script src="scripts/userSession.js"></script>
 </head>
 
 <body>
@@ -152,10 +153,6 @@
                         <input type="number" class="form-control" id="aggiungiPeso" placeholder="Inserisci il peso"
                             min="0" step="1">
                     </div>
-                    <div class="col-auto">
-                        <label for="aggiungiPesoData" class="form-label">Data</label>
-                        <input type="date" class="form-control" id="aggiungiPesoData">
-                    </div>
                     <div class="col-auto align-self-end">
                         <button type="button" class="bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold"
                             id="btnAggiungiPeso">Invia</button>
@@ -192,7 +189,7 @@
 </html>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function () {        
         // Ottieni la data corrente
         const oggi = new Date();
         // Formatta la data come stringa (YYYY-MM-DD)
@@ -211,11 +208,19 @@
         aggiungiPassiFormPHP();
 
         // Percorso del file JSON esterno
+        pathToJson = 'data/utenti.json';
+        // Carica il file JSON e mostrare il grafico
+        fetchJSONFile(pathToJson, function (data) {
+            obbiettivoIBMUtente = calcolaIBM(data, userId);
+        });           
+
+        // Percorso del file JSON esterno
         pathToJson = 'data/pesoUtenti.json';
         // Carica il file JSON e mostrare il grafico
         fetchJSONFile(pathToJson, function (data) {
             graficoPeso(data, userId);
-        });
+        });     
+        
     });
 
     graficoPeso();

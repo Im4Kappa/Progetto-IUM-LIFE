@@ -244,7 +244,7 @@ function graficoPassiOggi(data, userId, date) {
         config
     );
 }
-//---[ INIZIO SETTAGGIO GRAFICI ]---
+//---[ FINE SETTAGGIO GRAFICI ]---
 
 
 //---[ INOLTRO RICHIESTA FORM AGGIUNGI PASSI A PHP ]---

@@ -1,25 +1,28 @@
 [
     {
-      "iserId": 1,
+      "userId": 1,
       "nome": "Mario",
       "cognome": "Rossi",
       "età": 30,
-      "altezza": 175,
-      "peso": 75
+      "sesso": "M",
+      "altezza": 170,
+      "peso": 78
     },
     {
-      "iserId": 2,
+      "userId": 2,
       "nome": "Anna",
       "cognome": "Verdi",
       "età": 25,
+      "sesso": "F",
       "altezza": 160,
       "peso": 60
     },
     {
-      "iserId": 3,
+      "userId": 3,
       "nome": "Luigi",
       "cognome": "Bianchi",
       "età": 35,
+      "sesso": "M",
       "altezza": 180,
       "peso": 85
     }

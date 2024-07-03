@@ -4,11 +4,6 @@ function getWeightsData(data, userId) {
     return userData ? userData.weights : [];
 }
 
-// Funzione per impostare il peso più recente
-function impostaPesoRecente(data, userId) {
-
-}
-
 //---[SETTAGGIO GRAFICI]---
 // Funzione per disegnare il grafico del peso in ordine crescente di data
 function graficoPeso(data1, userId) {
@@ -16,7 +11,7 @@ function graficoPeso(data1, userId) {
     const weightsData = getWeightsData(data1, userId);
 
     const pesoRecente = document.getElementById("pesoRecente");
-    pesoRecente.innerHTML = weightsData[0].weight + " KG";
+    pesoRecente.innerHTML = weightsData[0].weight + " KG / Obbiettivo: "+obbiettivoIBMUtente+" KG";
 
     // Ordina i dati per data in ordine crescente
     weightsData.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -51,6 +46,36 @@ function graficoPeso(data1, userId) {
     });
 }
 
+//---[ INOLTRO RICHIESTA FORM AGGIUNGI PESO A PHP ]---
+function aggiungiPesoFormPHP() {
+    document.getElementById('btnAggiungiPeso').addEventListener('click', function () {
+        const peso = document.getElementById('aggiungiPeso').value;
+
+        const newWeight = {
+            "userId": userId, // Sostituisci con il metodo per ottenere l'userId
+            "weight": parseFloat(peso) // Converte il peso in float
+        };
+
+        fetch('php/aggiungiPeso.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newWeight)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Successo:', data);
+                if (data.message) {
+                    // Ricarica la cache e la pagina
+                    aggiornaCacheEDati();
+                }
+            })
+            .catch(error => {
+                console.error('Errore:', error);
+            });
+    });
+}
 
 
 // CONTROLLI PER APERTURA CHIUSURA PANNELLO AGGIUNGI PESO

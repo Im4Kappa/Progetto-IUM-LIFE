@@ -1,0 +1,49 @@
+@import 'variabilies.css';
+
+.header {
+    background: linear-gradient(93deg, var(--color-header-gradient1) 0%, var(--color-header-gradient2) 102.84%);
+    padding: 10px 20px;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image {
+    width: 74px;
+}
+
+.logo-text {
+    font-family: 'Karantina', sans-serif;
+    font-size: 36px;
+    margin-left: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-avatar {
+    width: 49px;
+}
+
+.user-info-mobile {
+    background: linear-gradient(93deg, var(--color-header-gradient1) 0%, var(--color-header-gradient2) 102.84%);
+    padding: 10px;
+}
+
+@media (max-width: 991px) {
+    .header {
+        justify-content: center;
+    }
+    .logo-container {
+        margin-right: auto;
+    }
+    .user-info-mobile {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+    }
+}

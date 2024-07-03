@@ -1,0 +1,168 @@
+[
+    {
+      "userId": 1,
+      "data": [
+        {
+          "date": "2024-06-30",
+          "pasti": [
+            {
+              "category": "Colazione",
+              "pasto": "Cappuccino",
+              "calories": 150
+            },
+            {
+              "category": "Pranzo",
+              "pasto": "Pizza margherita",
+              "calories": 250
+            },
+            {
+              "category": "Cena",
+              "pasto": "Risotto ai funghi",
+              "calories": 380
+            },
+            {
+              "category": "Spuntini",
+              "pasto": "Frutta mista (mela, banana, uva)",
+              "calories": 150
+            }
+          ]
+        },
+        {
+          "date": "2024-07-01",
+          "pasti": [
+            {
+              "category": "Colazione",
+              "pasto": "Caffè americano",
+              "calories": 2
+            },
+            {
+              "category": "Pranzo",
+              "pasto": "Insalata mista",
+              "calories": 180
+            },
+            {
+              "category": "Cena",
+              "pasto": "Sogliola alla griglia",
+              "calories": 250
+            },
+            {
+              "category": "Spuntini",
+              "pasto": "Barretta di cereali",
+              "calories": 120
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "userId": 2,
+      "data": [
+        {
+          "date": "2024-06-30",
+          "pasti": [
+            {
+              "category": "Colazione",
+              "pasto": "Latte intero",
+              "calories": 150
+            },
+            {
+              "category": "Pranzo",
+              "pasto": "Insalata mista",
+              "calories": 180
+            },
+            {
+              "category": "Cena",
+              "pasto": "Sogliola alla griglia",
+              "calories": 250
+            },
+            {
+              "category": "Spuntini",
+              "pasto": "Barretta di cereali",
+              "calories": 120
+            }
+          ]
+        },
+        {
+          "date": "2024-07-01",
+          "pasti": [
+            {
+              "category": "Colazione",
+              "pasto": "Caffè espresso",
+              "calories": 1
+            },
+            {
+              "category": "Pranzo",
+              "pasto": "Pizza margherita",
+              "calories": 250
+            },
+            {
+              "category": "Cena",
+              "pasto": "Filetto di salmone al vapore",
+              "calories": 300
+            },
+            {
+              "category": "Spuntini",
+              "pasto": "Smoothie alla frutta",
+              "calories": 200
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "userId": 3,
+      "data": [
+        {
+          "date": "2024-06-30",
+          "pasti": [
+            {
+              "category": "Colazione",
+              "pasto": "Yogurt magro",
+              "calories": 100
+            },
+            {
+              "category": "Pranzo",
+              "pasto": "Pollo al limone",
+              "calories": 280
+            },
+            {
+              "category": "Cena",
+              "pasto": "Pasta al pesto",
+              "calories": 350
+            },
+            {
+              "category": "Spuntini",
+              "pasto": "Smoothie alla frutta",
+              "calories": 200
+            }
+          ]
+        },
+        {
+          "date": "2024-07-01",
+          "pasti": [
+            {
+              "category": "Colazione",
+              "pasto": "Caffè americano",
+              "calories": 2
+            },
+            {
+              "category": "Pranzo",
+              "pasto": "Hamburger con patatine fritte",
+              "calories": 600
+            },
+            {
+              "category": "Cena",
+              "pasto": "Tagliata di manzo con rucola",
+              "calories": 450
+            },
+            {
+              "category": "Spuntini",
+              "pasto": "Gelato",
+              "calories": 180
+            }
+          ]
+        }
+      ]
+    }
+  ]
+  

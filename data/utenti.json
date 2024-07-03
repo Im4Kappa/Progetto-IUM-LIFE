@@ -1,0 +1,27 @@
+[
+    {
+      "iserId": 1,
+      "nome": "Mario",
+      "cognome": "Rossi",
+      "età": 30,
+      "altezza": 175,
+      "peso": 75
+    },
+    {
+      "iserId": 2,
+      "nome": "Anna",
+      "cognome": "Verdi",
+      "età": 25,
+      "altezza": 160,
+      "peso": 60
+    },
+    {
+      "iserId": 3,
+      "nome": "Luigi",
+      "cognome": "Bianchi",
+      "età": 35,
+      "altezza": 180,
+      "peso": 85
+    }
+  ]
+  

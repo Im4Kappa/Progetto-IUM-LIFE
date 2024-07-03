@@ -1,0 +1,53 @@
+@import 'variabilies.css';
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+/* Import delle icone Bootstrap */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+/* Import del font 'Inter' */
+
+body {
+    background: linear-gradient(148deg, rgba(255, 255, 255, 0) 42.77%, var(--color-background-gradient1) 98.22%),
+        linear-gradient(200deg, var(--color-background-gradient1) -7.7%, rgba(255, 255, 255, 0) 42.32%),
+        linear-gradient(129deg, var(--color-background-gradient2) -3.99%, rgba(255, 255, 255, 0) 46.71%),
+        linear-gradient(210deg, rgba(255, 255, 255, 0) 55.42%, var(--color-background-gradient2) 98.55%),
+        var(--color-white);
+    backdrop-filter: blur(2px);
+    min-height: 100vh;
+    color: var(--color-text);
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    color: var(--color-white);
+}
+
+#navbar-placeholder {
+    position: fixed;
+    /* Inizia come posizionamento assoluto */
+    top: 80%;
+    /* Posizionamento iniziale */
+    left: 50%;
+    /* Centra orizzontalmente */
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 350px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    /* Aggiunge una transizione morbida */
+}
+
+.bottonePersonalizzato {
+    border-radius: 60px;
+    color: white;
+    background: linear-gradient(90deg, #53a3e7 0%, #55dab9 100%);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    text-align: center;
+}
+
+/* PER RENDERE LE LISTE (UL LI) SCROLLABILI*/
+.list-group-scrollable {
+    max-height: 235px !important;
+    /* Altezza massima della lista */
+    overflow-y: auto;
+    /* Abilita lo scorrimento verticale quando la lista supera l'altezza massima */
+}

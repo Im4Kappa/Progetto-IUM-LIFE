@@ -1,0 +1,65 @@
+ .login-container {
+    max-width: 400px;
+}
+
+.logo {
+    width: 208px;
+    height: auto;
+}
+
+.email-input .pass-input {
+    border-radius: 20px;
+    background-color: #fafafa;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 17px;
+    width: 316px;
+    max-width: 100%;
+    color: rgba(0, 0, 0, 0.4);
+    padding: 9px 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+}
+@media (max-width: 991px) {
+    .email-input {
+        padding-right: 20px;
+        white-space: normal;
+    }
+}
+
+.login-button { 
+    border-radius: 20px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 25px;
+    width: 230px;
+    max-width: 100%;
+    color: #fff;
+    padding: 8px 60px;
+    font-family: 'Inder', sans-serif;
+    font-size: 36px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #007bff; 
+    border: none;
+}
+
+@media (max-width: 991px) {
+    .login-button {
+        padding: 8px 20px;
+    }
+}
+
+.forgot-password {
+    color: #64b0c7;
+    font-size: 12px;
+}
+
+.login-register {
+    color: #000;
+    margin-top: 20px;
+    font: 20px Inder, sans-serif;
+}
+
+.login-text {
+    color: rgba(85, 170, 227, 1);
+    text-decoration: none;
+} 

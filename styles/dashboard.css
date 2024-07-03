@@ -1,0 +1,56 @@
+.card {
+    border-radius: 20px !important;
+}
+
+.graficoPiccolo {
+    height: 250px;
+}
+
+.pannelloAggiungiDato {
+    border-radius: 20px;
+    background-color: white;
+    z-index: 10000;
+    width: 50%;
+    display: none;
+    border: 1px solid lightgrey;
+    position: relative;
+}
+
+.bottoneChiudiDesktop,
+.bottoneChiudiMobile {
+    color: black;
+    background-color: transparent;
+    border: none;
+}
+
+.bottoneChiudiMobile {
+    display: none;
+    font-weight: bolder;
+}
+
+.bottoneChiudiDesktop {
+    display: block;
+    position: relative;
+    font-size: 32px;
+    right: 5px;
+    top: 3px;
+}
+
+@media (max-width: 768px) {
+    .pannelloAggiungiDato {
+        width: 100%;
+    }
+
+    .bottoneChiudiMobile {
+        display: block;
+    }
+
+    .bottoneChiudiDesktop {
+        display: none;
+    }
+
+    .titoloPannelloAggiungiDato {
+        left: 0;
+        margin-left: -15px;
+    }
+}

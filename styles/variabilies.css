@@ -1,0 +1,42 @@
+/* FONT */
+@font-face {
+    font-family: 'Karantina-Regular';
+    src: url('../res/fonts/Karantina-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Karantina-Bold';
+    src: url('../res/fonts/Karantina-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Karantina-Light';
+    src: url('../res/fonts/Karantina-Light.ttf') format('truetype');
+    font-weight: lighter;
+}
+
+:root {
+    --color-primary: #007bff;
+    /* Blu primario per bottoni */
+    --color-accent: #64b0c7;
+    /* Colore di accento per link e testi */
+    --color-background-gradient1: rgba(85, 218, 185, 0.8);
+    /* Primo colore di sfondo per gradienti */
+    --color-background-gradient2: rgba(83, 163, 231, 0.8);
+    /* Secondo colore di sfondo per gradienti */
+    --color-text: black;
+    /* Colore del testo principale */
+    --color-text-light: rgba(0, 0, 0, 0.4);
+    /* Colore del testo leggermente più chiaro */
+    --color-header-gradient1: #53a3e7;
+    /* Primo colore di sfondo per header */
+    --color-header-gradient2: #55dab9;
+    /* Secondo colore di sfondo per header */
+
+    /* Altri colori */
+    --color-white: #fff;
+    /* Bianco */
+    --color-link: white;
+    /* Colore dei link */
+}

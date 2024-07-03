@@ -9,7 +9,6 @@
 .pannelloAggiungiDato {
     border-radius: 20px;
     background-color: white;
-    z-index: 10000;
     width: 50%;
     display: none;
     border: 1px solid lightgrey;
@@ -34,6 +33,33 @@
     font-size: 32px;
     right: 5px;
     top: 3px;
+}
+
+/* Stile per il container delle immagini */
+.image-container {
+    max-width: 100%;
+    /* Larghezza massima del contenitore */
+    overflow-x: auto;
+    /* Abilita lo scorrimento orizzontale quando necessario */
+    white-space: nowrap;
+    /* Assicura che le immagini rimangano su una singola riga */
+    margin-bottom: 20px;
+    /* Spazio inferiore tra il contenitore e altri elementi */
+}
+
+/* Stile per ogni singola immagine */
+.image-container img {
+    width: 150px;
+    /* Dimensioni fisse per l'immagine */
+    height: 150px;
+    /* Altezza fissa per l'immagine */
+    object-fit: cover;
+    /* Scalare l'immagine per adattarla al contenitore */
+    margin-right: 10px;
+    /* Spazio destro tra le immagini */
+    border: 1px solid #ccc;
+    /* Bordo sottile per ogni immagine */
+    border-radius: 25px;
 }
 
 @media (max-width: 768px) {

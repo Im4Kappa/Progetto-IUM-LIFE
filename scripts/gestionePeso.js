@@ -13,6 +13,9 @@ function graficoPeso(data1, userId) {
     const pesoRecente = document.getElementById("pesoRecente");
     pesoRecente.innerHTML = weightsData[0].weight + " KG / Obbiettivo: "+obbiettivoIBMUtente+" KG";
 
+    /*Aggiorna il campo di aggiunta peso */
+    document.getElementById("aggiungiPeso").value = weightsData[0].weight;
+
     // Ordina i dati per data in ordine crescente
     weightsData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
@@ -88,6 +91,7 @@ function aggiungiPesoFormPHP() {
             .catch(error => {
                 console.error('Errore:', error);
             });
+            aggiornaCacheEDati();
             aggiornaCacheEDati();
     });
 }

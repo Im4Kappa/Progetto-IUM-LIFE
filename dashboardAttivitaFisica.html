@@ -177,11 +177,33 @@
                                 <canvas id="graficoPeso" height="80"></canvas>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                 </div>
             </div>
         </div>
         <!-- FINE PANNELLO PESO -->
+
+        <!-- INIZIO PANNELLO ALLENAMENTO -->
+        <div id="pannelloAllenamento" class="mb-4 mt-3">
+            <div class="sottotitoloCategoria d-flex justify-content-left">
+                <h4 class="fw-bold me-4">Allenamento</h4>
+            </div>
+
+            <div class="row mb-3">
+                <!-- Crea un canvas per il grafico -->
+                <div class="text-dark">
+                    <div class="card">
+                        <div class="card-body text-left">
+                            <h5 class="card-title text-muted">Allenamenti Consigliati</h5>
+                            <div class="image-container" id="imageContainer">
+                                <!-- Qui vengono inserite dinamicamente le immagini -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FINE PANNELLO ALLENAMENTO -->
     </div>
     <!--FINE CONTAINER PRINCIPALE-->
 </body>
@@ -189,7 +211,34 @@
 </html>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {        
+    let allenamenti = [
+        "https://gymvisual.com/img/p/2/1/5/7/0/21570.gif",
+        "https://gymvisual.com/img/p/2/7/0/1/4/27014.gif",
+        "https://gymvisual.com/img/p/1/8/6/7/0/18670.gif",
+        "https://gymvisual.com/img/p/2/7/0/5/1/27051.gif",
+        "https://gymvisual.com/img/p/1/8/6/6/9/18669.gif",
+        "https://gymvisual.com/img/p/1/8/6/6/9/18669.gif",
+        "https://gymvisual.com/img/p/2/6/3/0/5/26305.gif",
+        "https://gymvisual.com/img/p/2/6/3/0/5/26305.gif",
+        "https://gymvisual.com/img/p/1/9/7/8/0/19780.gif",
+        "https://gymvisual.com/img/p/1/4/6/6/0/14660.gif",
+        "https://gymvisual.com/img/p/2/0/9/3/9/20939.gif",
+        "https://gymvisual.com/img/p/2/2/8/7/9/22879.gif",
+        "https://gymvisual.com/img/p/2/1/6/5/8/21658.gif",
+        "https://gymvisual.com/img/p/2/1/6/2/0/21620.gif",
+        "https://gymvisual.com/img/p/2/2/8/7/9/22879.gif",
+    ];
+
+    const container = document.getElementById('imageContainer');
+
+    allenamenti.forEach(url => {
+        const img = document.createElement('img');
+        img.src = url;
+        img.classList.add('img-fluid');
+        container.appendChild(img);
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
         // Ottieni la data corrente
         const oggi = new Date();
         // Formatta la data come stringa (YYYY-MM-DD)
@@ -212,17 +261,17 @@
         // Carica il file JSON e mostrare il grafico
         fetchJSONFile(pathToJson, function (data) {
             obbiettivoIBMUtente = calcolaIBM(data, userId);
-        });           
+        });
 
         // Percorso del file JSON esterno
         pathToJson = 'data/pesoUtenti.json';
         // Carica il file JSON e mostrare il grafico
         fetchJSONFile(pathToJson, function (data) {
             graficoPeso(data, userId);
-        });     
+        });
 
         aggiungiPesoFormPHP();
-        
+
     });
 
     graficoPeso();

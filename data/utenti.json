@@ -6,7 +6,8 @@
         "eta": 30,
         "sesso": "M",
         "altezza": 170,
-        "peso": 72
+        "peso": 79,
+        "obbiettivoPassi": 10000
     },
     {
         "userId": 2,
@@ -15,7 +16,8 @@
         "eta": 25,
         "sesso": "F",
         "altezza": 160,
-        "peso": 60
+        "peso": 60,
+        "obbiettivoPassi": 8000
     },
     {
         "userId": 3,
@@ -24,6 +26,7 @@
         "eta": 35,
         "sesso": "M",
         "altezza": 180,
-        "peso": 85
+        "peso": 85,
+        "obbiettivoPassi": 12000
     }
 ]

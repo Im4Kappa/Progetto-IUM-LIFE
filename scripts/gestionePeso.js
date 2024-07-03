@@ -85,14 +85,15 @@ function aggiungiPesoFormPHP() {
                 console.log('Successo:', data);
                 if (data.message) {
                     // Ricarica la cache e la pagina
-                    aggiornaCacheEDati();
+                    aggiornaCacheEDati("pesoUtenti.json");
+                    aggiornaCacheEDati("utenti.json");
                 }                
             })
             .catch(error => {
                 console.error('Errore:', error);
             });
-            aggiornaCacheEDati();
-            aggiornaCacheEDati();
+            aggiornaCacheEDati("pesoUtenti.json");
+            aggiornaCacheEDati("utenti.json");
     });
 }
 

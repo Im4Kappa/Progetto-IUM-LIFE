@@ -1,3 +1,34 @@
+// Variabili esterne
+let userId;
+let nomeUtente;
+let cognomeUtente;
+let etaUtente;
+let sessoUtente;
+let altezzaUtente;
+let pesoUtente;
+let obbiettivoPassi;
+
+// Funzione per recuperare le info di un certo utente
+function getUserSession(data, userIdInput) {
+    // Trova l'utente corrispondente
+    const user = data.find(user => user.userId === userIdInput);
+
+    if (!user) {
+        console.error(`Utente con userId ${userIdInput} non trovato`);
+        return null;
+    }
+
+    // Setta le variabili corrispondenti con le informazioni dell'utente trovato
+    userId = user.userId;
+    nomeUtente = user.nome;
+    cognomeUtente = user.cognome;
+    etaUtente = user.eta;
+    sessoUtente = user.sesso;
+    altezzaUtente = user.altezza;
+    pesoUtente = user.peso;
+    obbiettivoPassi = user.obbiettivoPassi;
+}
+
 // Funzione per calcolare l'IMC e il peso ideale
 function calcolaIBM(data, userId) {
     // Trova l'utente corrispondente

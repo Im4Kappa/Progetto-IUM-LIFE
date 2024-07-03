@@ -14,6 +14,14 @@
     <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/dashboard.css">
     <link rel="stylesheet" href="styles/sonno.css">
+
+    <!-- import scripts -->
+    <script src="scripts/importHeaderNavbar.js"></script> <!-- Importa la Navbar e la Headbar -->
+    <script src="scripts/gestionePassi.js"></script>
+    <script src="scripts/gestionePeso.js"></script>
+    <script src="scripts/caricaJSON.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/gestioneUtente.js"></script>
 </head>
 
 <body>
@@ -28,13 +36,14 @@
             </div>
             <!-- Pannello Aggiunta Sonno -->
             <div class="pannelloAggiungiDato p-4 background-light mt-2" id="pannelloAggiungiSonno">
-        
+
                 <button class="bottoneChiudiDesktop position-absolute fw-bold" id="bottoneChiudiDesktopSonno"><i
                         class="bi bi-x fw-bold"></i></button><!-- BOTTONE PER DESKTOP -->
                 <h4 class="titoloPannelloAggiungiDato fw-bold d-flex"> <button class="bottoneChiudiMobile fw-bold"
-                        id="bottoneChiudiMobileSonno"><i class="bi bi-chevron-left fw-bold"></i></button> Aggiungi Ore di
+                        id="bottoneChiudiMobileSonno"><i class="bi bi-chevron-left fw-bold"></i></button> Aggiungi Ore
+                    di
                     Sonno </h4>
-        
+
                 <form class="row g-3" id="formAggiungiSonno">
                     <div class="col-auto">
                         <label for="oreSonnoInput" class="form-label">Ore di Sonno</label>
@@ -46,10 +55,10 @@
                             id="btnAggiungiOreSonno">Invia</button>
                     </div>
                 </form>
-        
+
             </div>
         </div>
-        
+
         <!-- Grafico Sonno -->
         <div class="row">
             <div class="col">

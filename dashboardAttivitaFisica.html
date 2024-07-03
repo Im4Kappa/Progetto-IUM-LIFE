@@ -13,12 +13,11 @@
 
     <!-- import scripts -->
     <script src="scripts/importHeaderNavbar.js"></script> <!-- Importa la Navbar e la Headbar -->
-    <script src="scripts/gestioneUtente.js"></script>
     <script src="scripts/gestionePassi.js"></script>
     <script src="scripts/gestionePeso.js"></script>
     <script src="scripts/caricaJSON.js"></script>
     <script src="scripts/utils.js"></script>
-    <script src="scripts/userSession.js"></script>
+    <script src="scripts/gestioneUtente.js"></script>
 </head>
 
 <body>
@@ -66,16 +65,18 @@
                 <!-- INIZIO COLONNA SX -->
                 <div class="col-md-4 mt-4">
                     <div class="text-dark">
-                        <div class="card">
-                            <div class="card" style="height: 387.59px;">
+                        <div class="card border-0">
+                            <div class="card">
                                 <div class="card-body text-left">
-                                    <h5 class="card-title text-muted">Resoconto Passi</h5>
-                                    <h3 class="card-text mb-1 fw-bold" id="resocontoPassiOggi"></h3>
+                                    <h5 class="card-title text-muted">Passi oggi</h5>
+                                    <div class="d-flex display-inline">
+                                        <i class="fa-solid fa-person-walking fs-3"></i>&nbsp;&nbsp;
+                                        <h3 class="card-text mb-1 fw-bold" id="passiOggi"></h3>
+                                    </div>
                                     <hr>
-                                    <ul id="listaResocontoPassi"
-                                        class="list-group list-group-flush list-group-scrollable">
-
-                                    </ul>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <canvas id="graficoPassiOggi" class="graficoPiccolo"></canvas>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -108,18 +109,16 @@
                 <!-- INIZIO COLONNA DX -->
                 <div class="col-md-4 mt-4">
                     <div class="text-dark">
-                        <div class="card border-0">
-                            <div class="card">
+                        <div class="card">
+                            <div class="card" style="height: 387.59px;">
                                 <div class="card-body text-left">
-                                    <h5 class="card-title text-muted">Passi oggi</h5>
-                                    <div class="d-flex display-inline">
-                                        <i class="fa-solid fa-person-walking fs-3"></i>&nbsp;&nbsp;
-                                        <h3 class="card-text mb-1 fw-bold" id="passiOggi"></h3>
-                                    </div>
+                                    <h5 class="card-title text-muted">Resoconto Passi</h5>
+                                    <h3 class="card-text mb-1 fw-bold" id="resocontoPassiOggi"></h3>
                                     <hr>
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <canvas id="graficoPassiOggi" class="graficoPiccolo"></canvas>
-                                    </div>
+                                    <ul id="listaResocontoPassi"
+                                        class="list-group list-group-flush list-group-scrollable">
+
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -211,22 +210,57 @@
 </html>
 
 <script>
+
+    /* SEZIONE PASSI */
+    // Ottieni la data corrente
+    const oggi = new Date();
+    // Formatta la data come stringa (YYYY-MM-DD)
+    const dataOdierna = oggi.toISOString().slice(0, 10);
+
+    // Percorso del file JSON esterno
+    let pathToJson = 'data/passiUtenti.json';
+    // Carica il file JSON e mostrare il grafico
+    fetchJSONFile(pathToJson, function (data) {
+        //const userId = 1; // Sostituisci con l'ID dell'utente desiderato
+        listaResocontoPassi(data, userId, dataOdierna);
+        graficoKcalBruciateOggi(data, userId, dataOdierna);
+        graficoPassiOggi(data, userId, dataOdierna);
+    });
+    // Richiamo la funzione che inoltra la richiesta php per aggiungere i passi
+    aggiungiPassiFormPHP();
+    /* FINE SEZIONE PASSI */
+
+    /* SEZIONE PESO */
+    // Percorso del file JSON esterno
+    pathToJson = 'data/utenti.json';
+    // Carica il file JSON e mostrare il grafico
+    fetchJSONFile(pathToJson, function (data) {
+        obbiettivoIBMUtente = calcolaIBM(data, userId);
+    });
+
+    // Percorso del file JSON esterno
+    pathToJson = 'data/pesoUtenti.json';
+    // Carica il file JSON e mostrare il grafico
+    fetchJSONFile(pathToJson, function (data) {
+        graficoPeso(data, userId);
+    });
+
+    aggiungiPesoFormPHP();
+    /* FINE SEZIONE PESO */
+
+
+    /* SEZIONE ALLENAMENTI */
     let allenamenti = [
         "https://gymvisual.com/img/p/2/1/5/7/0/21570.gif",
         "https://gymvisual.com/img/p/2/7/0/1/4/27014.gif",
         "https://gymvisual.com/img/p/1/8/6/7/0/18670.gif",
-        "https://gymvisual.com/img/p/2/7/0/5/1/27051.gif",
-        "https://gymvisual.com/img/p/1/8/6/6/9/18669.gif",
-        "https://gymvisual.com/img/p/1/8/6/6/9/18669.gif",
-        "https://gymvisual.com/img/p/2/6/3/0/5/26305.gif",
         "https://gymvisual.com/img/p/2/6/3/0/5/26305.gif",
         "https://gymvisual.com/img/p/1/9/7/8/0/19780.gif",
         "https://gymvisual.com/img/p/1/4/6/6/0/14660.gif",
         "https://gymvisual.com/img/p/2/0/9/3/9/20939.gif",
         "https://gymvisual.com/img/p/2/2/8/7/9/22879.gif",
         "https://gymvisual.com/img/p/2/1/6/5/8/21658.gif",
-        "https://gymvisual.com/img/p/2/1/6/2/0/21620.gif",
-        "https://gymvisual.com/img/p/2/2/8/7/9/22879.gif",
+        "https://gymvisual.com/img/p/2/1/6/2/0/21620.gif"
     ];
 
     const container = document.getElementById('imageContainer');
@@ -238,41 +272,5 @@
         container.appendChild(img);
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
-        // Ottieni la data corrente
-        const oggi = new Date();
-        // Formatta la data come stringa (YYYY-MM-DD)
-        const dataOdierna = oggi.toISOString().slice(0, 10);
-
-        // Percorso del file JSON esterno
-        let pathToJson = 'data/passiUtenti.json';
-        // Carica il file JSON e mostrare il grafico
-        fetchJSONFile(pathToJson, function (data) {
-            //const userId = 1; // Sostituisci con l'ID dell'utente desiderato
-            listaResocontoPassi(data, userId, dataOdierna);
-            graficoKcalBruciateOggi(data, userId, dataOdierna);
-            graficoPassiOggi(data, userId, dataOdierna);
-        });
-        // Richiamo la funzione che inoltra la richiesta php per aggiungere i passi
-        aggiungiPassiFormPHP();
-
-        // Percorso del file JSON esterno
-        pathToJson = 'data/utenti.json';
-        // Carica il file JSON e mostrare il grafico
-        fetchJSONFile(pathToJson, function (data) {
-            obbiettivoIBMUtente = calcolaIBM(data, userId);
-        });
-
-        // Percorso del file JSON esterno
-        pathToJson = 'data/pesoUtenti.json';
-        // Carica il file JSON e mostrare il grafico
-        fetchJSONFile(pathToJson, function (data) {
-            graficoPeso(data, userId);
-        });
-
-        aggiungiPesoFormPHP();
-
-    });
-
-    graficoPeso();
+    /*FINE SEZIONE ALLENAMENTI */
 </script>

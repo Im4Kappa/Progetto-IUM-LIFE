@@ -1,15 +1,18 @@
-function aggiornaCacheEDati() {
-    // Aggiungi un timestamp per invalidare la cache
+function aggiornaCacheEDati(fileName) {
     const timestamp = new Date().getTime();
-    fetch(`data/passiUtenti.json?cacheBuster=${timestamp}`)
-        .then(response => response.json())
+    fetch(`../Progetto-IUM-LIFE/data/${fileName}?cacheBuster=${timestamp}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('File non trovato: ' + response.statusText);
+            }
+            return response.json();
+        })
         .then(data => {
-            // Ricarica i dati e aggiorna il grafico o altri elementi della pagina
             console.log('Dati aggiornati:', data);
-            window.location.reload(); // Ricarica la pagina
         })
         .catch(error => {
-            console.error('Errore nel ricaricare i dati:', error);
+            console.error('Errore nel caricamento dei dati:', error);
         });
+        window.location.reload(); // Ricarica la pagina
 }
 

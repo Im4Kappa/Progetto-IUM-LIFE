@@ -157,11 +157,12 @@ function aggiungiOreSonno() {
             .then(data => {
                 console.log('Successo:', data);
                 // Aggiorna la visualizzazione o effettua altre operazioni necessarie
-                aggiornaCacheEDati(); // Esempio di aggiornamento dei dati dopo il successo
+                aggiornaCacheEDati("sonnoUtenti.json");
             })
             .catch(error => {
                 console.error('Errore:', error);
             });
+            aggiornaCacheEDati("sonnoUtenti.json");
     });
 }
 

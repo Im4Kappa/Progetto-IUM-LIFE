@@ -1,5 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap JS Bundle (with Popper) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Style nostri -->
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/dashboard.css">
+
+    <!-- import scripts -->
+    <script src="scripts/importHeaderNavbar.js"></script>
+    <script src="scripts/provaGrafico.js"></script>
+</head>
+
+<body>
+    <!--INIZIO HEADER-->
+    <div id="header-placeholder"></div>
+    <!--FINE HEADER-->
+
+    <h1>L.I.F.E.</h1>
+    <div>
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <!--INIZIO NAVBAR-->
+    <div id="navbar-placeholder"></div>
+    <!--FINE NAVBAR-->
+</body>
+
 <script src="scripts/gestioneAlimentazione.js"></script> 
 <script>
     // Esempio di utilizzo: stampa i pasti per l'utente con ID 1
     stampaPastiUtente(1);
 </script>
+</html>

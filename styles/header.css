@@ -3,6 +3,7 @@
 .header {
     background: linear-gradient(93deg, var(--color-header-gradient1) 0%, var(--color-header-gradient2) 102.84%);
     padding: 10px 20px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .logo-container {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L.I.F.E | Attività Fisica</title>
+    <title>L.I.F.E | Dashboard Utente</title>
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Style nostri -->
@@ -18,17 +18,7 @@
     <script src="scripts/caricaJSON.js"></script>
     <script src="scripts/utils.js"></script>
     <script src="scripts/gestioneUtente.js"></script>
-
-    <script>
-        // Percorso del file JSON esterno
-        let pth = 'data/utenti.json';
-        // Carica il file JSON e mostrare il grafico
-        fetchJSONFile(pth, function (data) {
-            //const userId = 1; // Sostituisci con l'ID dell'utente desiderato
-            getUserSession(data, 1);
-        });
-    </script>
-
+    <script src="scripts/gestioneDashboard.js"></script>
 </head>
 
 <body>
@@ -36,13 +26,55 @@
     <!--INIZIO CONTAINER PRINCIPALE-->
     <div class="container custom-container mt-5 px-md-5">
         <!--TITOLO PAGINA -->
-        <h1 class="titoloPagina fw-bold mb-4">BENVENUTO! </h1>
-        <!-- INIZIO PANNELLO PASSI -->
-        <div id="pannelloPassi mb-4">
+        <h1 class="titoloPagina fw-bold mb-4" >DASHBOARD UTENTE</h1>
+        <div class="sottotitoloCategoria d-flex justify-content-left">
+            <h4 class="fw-bold me-4" id="benvenutoDashboard"></h4>
+        </div>
+        <!-- INIZIO PANNELLO DASHBOARD -->
+        <div id="pannelloDashboard mb-4">
 
             <div class="row mb-3">
                 <!-- INIZIO COLONNA SX -->
-                <div class="col-md-4 mt-4">
+                <div class="col-12 col-lg-3 mt-4">
+                    <div class="text-dark">
+                        <div class="card border-0">
+                            <div class="card">
+                                <div class="card-body text-left">
+                                    <h5 class="card-title text-muted">Dati personali</h5>
+                                    <div class="d-flex display-inline">
+                                        <i class="fa-solid fa-clipboard fs-3"></i>&nbsp;&nbsp;
+                                        <h3 class="card-text mb-1 fw-bold" id="nomeCognomeUtente"></h3>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex flex-column align-items-start" style="margin-bottom: 23%;">
+                                        <div class="mb-2">
+                                            <strong>E-mail:</strong> <span id="emailUtente"></span>
+                                        </div>
+                                        <div class="mb-2">
+                                            <strong>Età:</strong> <span id="etaUtente"></span>
+                                        </div>
+                                        <div class="mb-2">
+                                            <strong>Sesso:</strong> <span id="sessoUtente"></span>
+                                        </div>
+                                        <div class="mb-2">
+                                            <strong>Altezza:</strong> <span id="altezzaUtente"></span> cm
+                                        </div>
+                                        <div class="mb-2">
+                                            <strong>Peso:</strong> <span id="pesoUtente"></span> kg
+                                        </div>
+                                        <div class="mb-2">
+                                            <strong>Obiettivo Passi:</strong> <span id="obbiettivoPassi"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FINE COLONNA SX -->
+
+                <!-- INIZIO COLONNA CENTRALE -->
+                <div class="col-12 col-lg-3 mt-4">
                     <div class="text-dark">
                         <div class="card border-0">
                             <div class="card">
@@ -61,43 +93,21 @@
                         </div>
                     </div>
                 </div>
-                <!-- FINE COLONNA SX -->
-
-                <!-- INIZIO COLONNA CENTRALE -->
-                <div class="col-md-4 mt-4">
-                    <div class="text-dark">
-                        <div class="card border-0">
-                            <div class="card">
-                                <div class="card-body text-left">
-                                    <h5 class="card-title text-muted">Kcal bruciate oggi</h5>
-                                    <div class="d-flex display-inline">
-                                        <i class="fa-solid fa-fire-flame-curved fs-3"></i>&nbsp;&nbsp;
-                                        <h3 class="card-text mb-1 fw-bold" id="kcalBruciateOggi"></h3>
-                                    </div>
-                                    <hr>
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <canvas id="graficoKcalBruciateOggi" class="graficoPiccolo"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- FINE COLONNA CENTRALE -->
 
                 <!-- INIZIO COLONNA DX -->
-                <div class="col-md-4 mt-4">
+                <div class="col-12 col-lg-6 mt-4">
                     <div class="text-dark">
                         <div class="card">
-                            <div class="card" style="height: 387.59px;">
-                                <div class="card-body text-left">
-                                    <h5 class="card-title text-muted">Resoconto Passi</h5>
-                                    <h3 class="card-text mb-1 fw-bold" id="resocontoPassiOggi"></h3>
-                                    <hr>
-                                    <ul id="listaResocontoPassi"
-                                        class="list-group list-group-flush list-group-scrollable">
-
-                                    </ul>
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-muted">Andamento Peso</h5>
+                                <div class="d-flex display-inline">
+                                    <i class="fa-solid fa-weight-scale fs-3"></i>&nbsp;&nbsp;
+                                    <h3 class="card-text mb-1 fw-bold" id="pesoRecente"></h3>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <canvas id="graficoPeso" height="134"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -106,82 +116,7 @@
                 <!-- FINE COLONNA DX -->
             </div>
         </div>
-        <!-- FINE PANNELLO PASSI -->
-
-        <!-- INIZIO PANNELLO PESO -->
-        <div id="pannelloPeso mb-4 mt-5">
-            <div class="sottotitoloCategoria d-flex justify-content-left">
-                <h4 class="fw-bold me-4">Peso</h4>
-                <button class="bottoneApriPannelloAggiungi bottonePersonalizzato px-4 py-1 mb-4 text-center fw-bold"
-                    id="bottoneApriPannelloAggiungiPeso"><i class="bi bi-plus-lg"></i> Aggiungi</button>
-            </div>
-
-            <!-- INIZIO FORM AGGIUNTA PESO -->
-            <div class="pannelloAggiungiDato p-4 background-light mb-4" id="pannelloAggiungiPeso">
-
-                <button class="bottoneChiudiDesktop position-absolute fw-bold" id="bottoneChiudiDesktopPeso"><i
-                        class="bi bi-x fw-bold"></i></button><!-- BOTTONE PER DESKTOP -->
-                <h4 class="titoloPannelloAggiungiDato fw-bold d-flex"> <button class="bottoneChiudiMobile fw-bold"
-                        id="bottoneChiudiMobilePeso"><i class="bi bi-chevron-left fw-bold"></i></button> Aggiungi Peso
-                </h4>
-
-                <form class="row g-3" id="formAggiungiPeso">
-                    <div class="col-auto">
-                        <label for="aggiungiPeso" class="form-label">Peso</label>
-                        <input type="number" class="form-control" id="aggiungiPeso" placeholder="Inserisci il peso"
-                            min="0" step="1">
-                    </div>
-                    <div class="col-auto align-self-end">
-                        <button type="button" class="bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold"
-                            id="btnAggiungiPeso">Invia</button>
-                    </div>
-                </form>
-
-            </div>
-            <!-- FINE FORM AGGIUNTA PESO -->
-
-            <div class="row mb-3">
-                <!-- Crea un canvas per il grafico -->
-                <div class="text-dark">
-                    <div class="card">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-muted">Andamento Peso</h5>
-                            <div class="d-flex display-inline">
-                                <i class="fa-solid fa-weight-scale fs-3"></i>&nbsp;&nbsp;
-                                <h3 class="card-text mb-1 fw-bold" id="pesoRecente"></h3>
-                            </div>
-                            <hr>
-                            <div class="d-flex justify-content-center align-items-center">
-                                <canvas id="graficoPeso" height="80"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- FINE PANNELLO PESO -->
-
-        <!-- INIZIO PANNELLO ALLENAMENTO -->
-        <div id="pannelloAllenamento" class="mb-4 mt-3">
-            <div class="sottotitoloCategoria d-flex justify-content-left">
-                <h4 class="fw-bold me-4">Allenamento</h4>
-            </div>
-
-            <div class="row mb-3">
-                <!-- Crea un canvas per il grafico -->
-                <div class="text-dark">
-                    <div class="card">
-                        <div class="card-body text-left">
-                            <h5 class="card-title text-muted">Allenamenti Consigliati</h5>
-                            <div class="image-container" id="imageContainer">
-                                <!-- Qui vengono inserite dinamicamente le immagini -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- FINE PANNELLO ALLENAMENTO -->
+        <!-- FINE PANNELLO DASHBOARD -->
     </div>
     <!--FINE CONTAINER PRINCIPALE-->
 </body>
@@ -189,5 +124,38 @@
 </html>
 
 <script>
+    /*Carica l'utente*/
+    // Percorso del file JSON esterno
+    let pathToJson = 'data/utenti.json';
+    // Carica il file JSON e mostrare il grafico
+    fetchJSONFile(pathToJson, function (data) {
+        //const userId = 1; // Sostituisci con l'ID dell'utente desiderato
+        utenteCompleto = getUserSession(data, idSessione);
+        obbiettivoIBMUtente = calcolaIBM(data, idSessione);
+        impostaDashboard();
+    });
 
+    /* SEZIONE PASSI */
+    // Ottieni la data corrente
+    const oggi = new Date();
+    // Formatta la data come stringa (YYYY-MM-DD)
+    const dataOdierna = oggi.toISOString().slice(0, 10);
+
+    // Percorso del file JSON esterno
+    pathToJson = 'data/passiUtenti.json';
+    // Carica il file JSON e mostrare il grafico
+    fetchJSONFile(pathToJson, function (data) {
+        //const userId = 1; // Sostituisci con l'ID dell'utente desiderato
+        graficoPassiOggi(data, idSessione, dataOdierna);
+    });
+    /* FINE SEZIONE PASSI */
+
+    /* SEZIONE PESO */
+    // Percorso del file JSON esterno
+    pathToJson = 'data/pesoUtenti.json';
+    // Carica il file JSON e mostrare il grafico
+    fetchJSONFile(pathToJson, function (data) {
+        graficoPeso(data, idSessione);
+    });
+    /* FINE SEZIONE PESO */
 </script>

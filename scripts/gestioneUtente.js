@@ -1,3 +1,4 @@
+const idSessione = 1;
 // Variabili esterne
 let userId;
 let nomeUtente;
@@ -7,6 +8,9 @@ let sessoUtente;
 let altezzaUtente;
 let pesoUtente;
 let obbiettivoPassi;
+let emailUtente;
+let passwordUtente;
+let utenteCompleto;
 
 // Funzione per recuperare le info di un certo utente
 function getUserSession(data, userIdInput) {
@@ -27,6 +31,22 @@ function getUserSession(data, userIdInput) {
     altezzaUtente = user.altezza;
     pesoUtente = user.peso;
     obbiettivoPassi = user.obbiettivoPassi;
+    emailUtente = user.email; // Aggiunta per gestire l'email
+    passwordUtente = user.password; // Aggiunta per gestire la password
+
+    // Ritorna un oggetto contenente le informazioni dell'utente
+    return {
+        userId: userId,
+        nomeUtente: nomeUtente,
+        cognomeUtente: cognomeUtente,
+        etaUtente: etaUtente,
+        sessoUtente: sessoUtente,
+        altezzaUtente: altezzaUtente,
+        pesoUtente: pesoUtente,
+        obbiettivoPassi: obbiettivoPassi,
+        emailUtente: emailUtente,
+        passwordUtente: passwordUtente
+    };
 }
 
 // Funzione per calcolare l'IMC e il peso ideale
@@ -63,3 +83,17 @@ function calcolaIMC(peso, altezza) {
     // Arrotonda l'IMC a due cifre decimali
     return imc.toFixed(2);
 }
+
+/*Carica l'utente*/
+// Percorso del file JSON esterno
+let pth = 'data/utenti.json';
+// Carica il file JSON e mostrare il grafico
+fetchJSONFile(pth, function (data) {
+    utenteCompleto = getUserSession(data, idSessione);
+
+    // Esempio di utilizzo delle informazioni dell'utente
+    console.log(utenteCompleto.nomeUtente); // Stampa il nome dell'utente
+    console.log(utenteCompleto.emailUtente); // Stampa l'email dell'utente
+    console.log(calcolaIMC(utenteCompleto.pesoUtente, utenteCompleto.altezzaUtente)); // Calcola e stampa l'IMC
+    console.log(calcolaIBM(data, utenteCompleto.userId)); // Calcola e stampa il peso ideale
+});

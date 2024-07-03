@@ -11,10 +11,12 @@ function graficoPeso(data1, userId) {
     const weightsData = getWeightsData(data1, userId);
 
     const pesoRecente = document.getElementById("pesoRecente");
-    pesoRecente.innerHTML = weightsData[0].weight + " KG / Obbiettivo: "+obbiettivoIBMUtente+" KG";
+    pesoRecente.innerHTML = weightsData[0].weight + " KG / Obbiettivo: " + obbiettivoIBMUtente + " KG";
 
     /*Aggiorna il campo di aggiunta peso */
-    document.getElementById("aggiungiPeso").value = weightsData[0].weight;
+    if (document.getElementById("aggiungiPeso")) {
+        document.getElementById("aggiungiPeso").value = weightsData[0].weight;
+    }
 
     // Ordina i dati per data in ordine crescente
     weightsData.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -87,13 +89,13 @@ function aggiungiPesoFormPHP() {
                     // Ricarica la cache e la pagina
                     aggiornaCacheEDati("pesoUtenti.json");
                     aggiornaCacheEDati("utenti.json");
-                }                
+                }
             })
             .catch(error => {
                 console.error('Errore:', error);
             });
-            aggiornaCacheEDati("pesoUtenti.json");
-            aggiornaCacheEDati("utenti.json");
+        aggiornaCacheEDati("pesoUtenti.json");
+        aggiornaCacheEDati("utenti.json");
     });
 }
 

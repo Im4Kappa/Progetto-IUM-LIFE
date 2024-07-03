@@ -6,8 +6,10 @@
         "eta": 30,
         "sesso": "M",
         "altezza": 170,
-        "peso": 79,
-        "obbiettivoPassi": 10000
+        "peso": 77,
+        "obbiettivoPassi": 1000,
+        "email": "mario@example.com",
+        "password": "password123"
     },
     {
         "userId": 2,
@@ -17,7 +19,9 @@
         "sesso": "F",
         "altezza": 160,
         "peso": 60,
-        "obbiettivoPassi": 8000
+        "obbiettivoPassi": 8000,
+        "email": "anna@example.com",
+        "password": "securepass"
     },
     {
         "userId": 3,
@@ -27,6 +31,8 @@
         "sesso": "M",
         "altezza": 180,
         "peso": 85,
-        "obbiettivoPassi": 12000
+        "obbiettivoPassi": 12000,
+        "email": "luigi@example.com",
+        "password": "mysecret"
     }
 ]

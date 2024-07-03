@@ -222,9 +222,9 @@
     // Carica il file JSON e mostrare il grafico
     fetchJSONFile(pathToJson, function (data) {
         //const userId = 1; // Sostituisci con l'ID dell'utente desiderato
-        listaResocontoPassi(data, userId, dataOdierna);
-        graficoKcalBruciateOggi(data, userId, dataOdierna);
-        graficoPassiOggi(data, userId, dataOdierna);
+        listaResocontoPassi(data, idSessione, dataOdierna);
+        graficoKcalBruciateOggi(data, idSessione, dataOdierna);
+        graficoPassiOggi(data, idSessione, dataOdierna);
     });
     // Richiamo la funzione che inoltra la richiesta php per aggiungere i passi
     aggiungiPassiFormPHP();
@@ -235,14 +235,14 @@
     pathToJson = 'data/utenti.json';
     // Carica il file JSON e mostrare il grafico
     fetchJSONFile(pathToJson, function (data) {
-        obbiettivoIBMUtente = calcolaIBM(data, userId);
+        obbiettivoIBMUtente = calcolaIBM(data, idSessione);
     });
 
     // Percorso del file JSON esterno
     pathToJson = 'data/pesoUtenti.json';
     // Carica il file JSON e mostrare il grafico
     fetchJSONFile(pathToJson, function (data) {
-        graficoPeso(data, userId);
+        graficoPeso(data, idSessione);
     });
 
     aggiungiPesoFormPHP();

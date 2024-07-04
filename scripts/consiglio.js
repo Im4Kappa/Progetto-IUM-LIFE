@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function mostraConsiglio() {
         consiglioAlert.style.display = 'block';
         console.log("Consiglio mostrato");
-        document.getElementById("textConsiglio").innerHTML = scegliConsiglioCasuale();
+        document.getElementById("textConsiglio").innerHTML = scegliConsiglioCasualeSonno();
     }
 
     // Evento click sul bottone per aprire il pannello
@@ -32,11 +32,7 @@ const consigliSonno = [
 ];
 
 // Funzione per scegliere casualmente uno dei consigli dal vettore
-function scegliConsiglioCasuale() {
+function scegliConsiglioCasualeSonno() {
     const indiceCasuale = Math.floor(Math.random() * consigliSonno.length);
     return consigliSonno[indiceCasuale];
 }
-
-// Esempio di utilizzo della funzione per ottenere un consiglio casuale
-const consiglioCasuale = scegliConsiglioCasuale();
-console.log("Consiglio sul sonno:", consiglioCasuale);

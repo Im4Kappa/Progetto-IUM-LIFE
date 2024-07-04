@@ -4,51 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+6hFyBHSFwH1Ql2OWVcFVvA+0KmqS2jFVDICeKkRk81RSl7" crossorigin="anonymous">
-
-    <!-- Style nostro -->
+    <title>L.I.F.E | Dashboard Sonno</title>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Style nostri -->
     <link rel="stylesheet" href="styles/general.css">
-    <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/dashboard.css">
     <link rel="stylesheet" href="styles/sonno.css">
 
     <!-- import scripts -->
     <script src="scripts/importHeaderNavbar.js"></script> <!-- Importa la Navbar e la Headbar -->
-    <script src="scripts/gestionePassi.js"></script>
-    <script src="scripts/gestionePeso.js"></script>
     <script src="scripts/caricaJSON.js"></script>
     <script src="scripts/utils.js"></script>
-    <script src="scripts/gestioneUtente.js"></script>
 </head>
 
 <body>
 
-    <!-- Content -->
-    <div class="container mt-5">
-        <div id="pannelloSonno" class="mb-4">
+    <!--INIZIO CONTAINER PRINCIPALE-->
+    <div class="container custom-container mt-5 px-md-5">
+        <!--TITOLO PAGINA -->
+        <h1 class="titoloPagina fw-bold mb-4">SONNO</h1>
+        <!-- INIZIO PANNELLO SONNO -->
+        <div id="pannelloSonno mb-4">
             <div class="sottotitoloCategoria d-flex justify-content-left">
-                <h4 class="fw-bold me-4">Sonno</h4>
+                <h4 class="fw-bold me-4">Ore di sonno</h4>
                 <button class="bottoneApriPannelloAggiungi bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold"
                     id="bottoneApriPannelloAggiungiSonno"><i class="bi bi-plus-lg"></i> Aggiungi</button>
             </div>
-            <!-- Pannello Aggiunta Sonno -->
-            <div class="pannelloAggiungiDato p-4 background-light mt-2" id="pannelloAggiungiSonno">
+            <!-- INIZIO FORM AGGIUNTA ORE DI SONNO -->
+            <div class="pannelloAggiungiDato p-4 background-light mt-2 mb-3" id="pannelloAggiungiSonno">
 
                 <button class="bottoneChiudiDesktop position-absolute fw-bold" id="bottoneChiudiDesktopSonno"><i
                         class="bi bi-x fw-bold"></i></button><!-- BOTTONE PER DESKTOP -->
                 <h4 class="titoloPannelloAggiungiDato fw-bold d-flex"> <button class="bottoneChiudiMobile fw-bold"
-                        id="bottoneChiudiMobileSonno"><i class="bi bi-chevron-left fw-bold"></i></button> Aggiungi Ore
-                    di
-                    Sonno </h4>
+                        id="bottoneChiudiMobileSonno"><i class="bi bi-chevron-left fw-bold"></i></button> Aggiungi ore di sonno
+                </h4>
 
                 <form class="row g-3" id="formAggiungiSonno">
                     <div class="col-auto">
-                        <label for="oreSonnoInput" class="form-label">Ore di Sonno</label>
+                        <label for="aggiungiOreSonnoInput" class="form-label">Ore di Sonno</label>
                         <input type="number" class="form-control" id="aggiungiOreSonnoInput"
-                            placeholder="Inserisci il numero di ore" min="0" step="0.5" required>
+                            placeholder="Inserisci le ore di sonno" min="0" step="0.5">
                     </div>
                     <div class="col-auto align-self-end">
                         <button type="button" class="bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold"
@@ -57,45 +53,34 @@
                 </form>
 
             </div>
-        </div>
-
-        <!-- Grafico Sonno -->
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Grafico Sonno</h5>
-                        <canvas id="graficoSonno" height="200"></canvas>
+            <div id="pannelloDashboard mb-4">
+                <!-- Grafico Sonno -->
+                <div class="row mt-3 ">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Andamento Sonno</h5>
+                                <canvas id="graficoSonno" height="80"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Resoconto Settimanale con scrollbar -->
+                <div class="row mt-4">
+                    <div class="sottotitoloCategoria d-flex justify-content-left">
+                        <h4 class="fw-bold me-4">Ultima settimana</h4>
+                    </div>                    
+                    <div class="col-12">
+                        <div class="card-container d-flex mt-3" id="resocontoSettimanale">
+                            <!-- Qui vengono inserite dinamicamente le card quadrate -->
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- FINE PANNELLO SONNO -->
         </div>
-
-
-        <!-- Resoconto Settimanale con scrollbar -->
-        <div class="row mt-4">
-            <div class="col">
-                <div class="card-container" id="resocontoSettimanale">
-                    <!-- Qui vengono inserite dinamicamente le card quadrate -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap JS bundle (incluso Popper.js) -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"
-        integrity="sha384-3Pp0Q4KLT5oWLGWOsU7tws3pDmwpMEftluvcFQRxDDPHEyKdPc8qUpvOV3R2rPuw"
-        crossorigin="anonymous"></script>
-
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <!-- Script nostro -->
-    <script src="scripts/gestioneSonno.js"></script>
-    <script src="scripts/userSession.js"></script>
-    <script src="scripts/caricaJSON.js"></script>
-    <script src="scripts/utils.js"></script>
-
+        <!--FINE CONTAINER PRINCIPALE-->
 </body>
-
+<script src="scripts/gestioneUtente.js"></script>
+<script src="scripts/gestioneSonno.js"></script>
 </html>

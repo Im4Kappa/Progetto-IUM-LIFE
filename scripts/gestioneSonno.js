@@ -2,13 +2,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const oggi = new Date();
     const dataOdierna = oggi.toISOString().slice(0, 10);
 
+    const userId = idSessione;
+    //console.log(idSessione);
     // Percorso del file JSON per il sonno
     let pathToSonnoJson = 'data/sonnoUtenti.json';
 
     // Carica il file JSON per il sonno e mostra il grafico
     fetchJSONFile(pathToSonnoJson, function (dataSonno) {
         // Supponiamo di lavorare con l'utente con userId = 1
-        const userId = 1;
 
         // Filtra i dati per l'utente specificato
         const userData = dataSonno.users.find(user => user.userId === userId);
@@ -29,12 +30,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
 // Funzione per disegnare il grafico del sonno
 function graficoSonno(sleepData, userId) {
     const labels = sleepData.map(item => item.date);
     const oreSonno = sleepData.map(item => item.hours); // Modifica per riflettere la struttura del JSON
-
+    document.getElementById("aggiungiOreSonnoInput").value=oreSonno[oreSonno.length - 1];
     const ctx = document.getElementById('graficoSonno').getContext('2d');
     new Chart(ctx, {
         type: 'line',
@@ -84,10 +84,11 @@ function mostraResocontoSettimanale(sleepData) {
 
     resocontoSettimanale.forEach(item => {
         const cardHtml = `
-            <div class="card text-center card-square">
-                <div class="card-body">
+            <div class="text-center card-square">
+                <div class="card-body px-4">
                     <h5 class="card-title">${item.giorno}</h5>
                     <p class="card-text">${item.ore} ore di sonno</p>
+                    <p class="card-textMobile">${item.ore}h</p>
                 </div>
             </div>
         `;
@@ -137,11 +138,10 @@ function fetchJSONFile(path, callback) {
 
 function aggiungiOreSonno() {
     document.getElementById('btnAggiungiOreSonno').addEventListener('click', function () {
-        const userId = getUserId(); // Funzione per ottenere l'ID dell'utente, da implementare
         const oreSonno = document.getElementById('aggiungiOreSonnoInput').value;
 
         const newSleepEntry = {
-            userId: userId,
+            userId: idSessione,
             date: getFormattedDate(), // Funzione per ottenere la data odierna nel formato richiesto, da implementare
             sleepHours: parseFloat(oreSonno)
         };
@@ -162,13 +162,8 @@ function aggiungiOreSonno() {
             .catch(error => {
                 console.error('Errore:', error);
             });
-            aggiornaCacheEDati("sonnoUtenti.json");
+        aggiornaCacheEDati("sonnoUtenti.json");
     });
-}
-
-function getUserId() {
-    // Implementa la logica per ottenere l'ID dell'utente, ad esempio da una variabile globale o da un sistema di autenticazione
-    return 1; // Esempio di ID utente
 }
 
 function getFormattedDate() {
@@ -179,32 +174,41 @@ function getFormattedDate() {
 aggiungiOreSonno();
 
 
-document.addEventListener('DOMContentLoaded', function() {
-var apriPannelloBtn = document.getElementById('bottoneApriPannelloAggiungiSonno');
-var chiudiPannelloBtn = document.getElementById('bottoneChiudiDesktopSonno');
-var aggiungiOrePanel = document.getElementById('aggiungiOreSonnoInput');
+// CONTROLLI PER APERTURA CHIUSURA PANNELLO AGGIUNGI SONNO
+document.addEventListener('DOMContentLoaded', function () {
+    var pannelloAggiungiSonno = document.getElementById('pannelloAggiungiSonno');
+    var bottoneApri = document.getElementById('bottoneApriPannelloAggiungiSonno');
+    var bottoneChiudiDesktop = document.getElementById('bottoneChiudiDesktopSonno');
+    var bottoneChiudiMobile = document.getElementById('bottoneChiudiMobileSonno');
 
-    // Funzione per mostrare il pannello aggiungi peso
+    // Funzione per mostrare il pannello aggiungi sonno
     function mostraPannello() {
-        if (pannelloAggiungiSonno.style.display !== 'open') {
-            pannelloAggiungiSonno.style.display = 'open';
+        if (pannelloAggiungiSonno.style.display !== 'block') {
+            pannelloAggiungiSonno.style.display = 'block';
             console.log("Pannello mostrato");
         }
     }
 
-    // Funzione per nascondere il pannello aggiungi peso
+    // Funzione per nascondere il pannello aggiungi sonno
     function nascondiPannello() {
-        if (pannelloAggiungiSonno.style.display === 'open') {
+        if (pannelloAggiungiSonno.style.display === 'block') {
             pannelloAggiungiSonno.style.display = 'none';
             console.log("Pannello nascosto");
         }
     }
 
-apriPannelloBtn.addEventListener('click', function () {
-    pannelloAggiungiSonno.classList.add('open');
-});
+    // Evento click sul bottone per aprire il pannello
+    bottoneApri.addEventListener('click', function () {
+        mostraPannello();
+    });
 
-chiudiPannelloBtn.addEventListener('click', function () {
-    pannelloAggiungiSonno.classList.remove('open');
-});
+    // Evento click sul bottone per chiudere il pannello (desktop)
+    bottoneChiudiDesktop.addEventListener('click', function () {
+        nascondiPannello();
+    });
+
+    // Evento click sul bottone per chiudere il pannello (mobile)
+    bottoneChiudiMobile.addEventListener('click', function () {
+        nascondiPannello();
+    });
 });

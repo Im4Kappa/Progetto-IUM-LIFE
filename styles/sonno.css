@@ -1,51 +1,44 @@
- /* CSS personalizzato per le card quadrate con scrollbar */
- .card-container {
-     overflow-x: auto;
-     /* Scroll orizzontale */
-     white-space: nowrap;
-     /* Evita il wrapping */
-     padding: 10px;
- }
+.card-container {
+    overflow-x: auto;
+    /* Permette lo scroll orizzontale */
+    white-space: nowrap;
+    /* Impedisce la rottura delle righe */
+    -webkit-overflow-scrolling: touch;
+    /* Abilita lo scorrimento fluido su dispositivi touch */
+}
 
- .card-square {
-     display: inline-block;
-     width: 200px;
-     /* Larghezza fissa delle card quadrate */
-     margin-right: 10px;
- }
+.card-square {
+    background-color: white;
+    padding-top: 20px;
+    border-radius: 25px;
+    display: inline-block;
+    width: 200px !important;
+    height: 100px !important;
+    /* Larghezza fissa delle card quadrate */
+    margin-right: 10px;
+}
 
- /* Stile per il pannello di aggiunta ore di sonno */
- .panel {
-     display: none;
-     position: absolute;
-     background-color: white;
-     border: 1px solid #ccc;
-     padding: 20px;
-     z-index: 1000;
-     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
- }
+.card-textMobile {
+    display: none;
+}
 
- .panel.open {
-     display: block;
- }
+.card-text {
+    display: block;
+}
 
+@media (max-width: 768px) {
+    .card-square {
+        display: inline-block;
+        height: 100px !important;
+        margin-right: 15px;
+        padding: 30px;
+    }
 
- /* Stile per il pannello di aggiunta ore di sonno */
- #pannelloSonno {
-     margin-bottom: 20px;
-     /* Spazio sotto il pannello */
- }
+    .card-textMobile {
+        display: block;
+    }    
 
- #pannelloAggiungiSonno {
-     display: none;
-     position: absolute;
-     background-color: white;
-     border: 1px solid #ccc;
-     padding: 20px;
-     z-index: 1000;
-     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
- }
-
- #pannelloAggiungiSonno.open {
-     display: block;
- }
+    .card-text {
+        display: none;
+    }    
+}

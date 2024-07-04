@@ -18,7 +18,7 @@
 <body>
 
     <div class="container mt-5">
-        <div class="row justify-content-center">
+        <div class="row justify-content-center">           
             <div class="col-md-6 text-center login-container">
                 <div class="logoContainer d-flex mb-3 text-center justify-content-center">
                     <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/03628d78fc5e72fedd9c8471f1d3039ecff6cb30d5b6b9e5b951f05a07078103?apiKey=40a13daf02674cdaa0209479a7976f2a&"
@@ -28,8 +28,11 @@
                 <p class="mb-4">
                     <a href="login.html" class="login-text fs-3">LOGIN</a> / <a href="registrazione.html"
                         class="registrazione-text fs-5">REGISTRATI</a>
-                </p>
+                </p>              
                 <div class="container">
+                    <div class="alert alert-danger d-none" role="alert" id="errorMessage">
+                        <b>Errore!</b> E-mail o password errate.
+                    </div>                       
                     <form id="loginForm">
                         <div class="mb-3">
                             <label for="emailInput" class="visually-hidden">Email</label>

@@ -1,47 +1,51 @@
  /* CSS personalizzato per le card quadrate con scrollbar */
  .card-container {
-    overflow-x: auto; /* Scroll orizzontale */
-    white-space: nowrap; /* Evita il wrapping */
-    padding: 10px;
-}
+     overflow-x: auto;
+     /* Scroll orizzontale */
+     white-space: nowrap;
+     /* Evita il wrapping */
+     padding: 10px;
+ }
 
-.card-square {
-    display: inline-block;
-    width: 200px; /* Larghezza fissa delle card quadrate */
-    margin-right: 10px;
-}
+ .card-square {
+     display: inline-block;
+     width: 200px;
+     /* Larghezza fissa delle card quadrate */
+     margin-right: 10px;
+ }
 
-/* Stile per il pannello di aggiunta ore di sonno */
-.panel {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 20px;
-    z-index: 1000;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
+ /* Stile per il pannello di aggiunta ore di sonno */
+ .panel {
+     display: none;
+     position: absolute;
+     background-color: white;
+     border: 1px solid #ccc;
+     padding: 20px;
+     z-index: 1000;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+ }
 
-.panel.open {
-    display: block;
-}
+ .panel.open {
+     display: block;
+ }
 
 
-/* Stile per il pannello di aggiunta ore di sonno */
-#pannelloSonno {
-    margin-bottom: 20px; /* Spazio sotto il pannello */
-}
+ /* Stile per il pannello di aggiunta ore di sonno */
+ #pannelloSonno {
+     margin-bottom: 20px;
+     /* Spazio sotto il pannello */
+ }
 
-#pannelloAggiungiSonno {
-    display: none;
-    position: absolute;
-    background-color: white;
-    border: 1px solid #ccc;
-    padding: 20px;
-    z-index: 1000;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-}
+ #pannelloAggiungiSonno {
+     display: none;
+     position: absolute;
+     background-color: white;
+     border: 1px solid #ccc;
+     padding: 20px;
+     z-index: 1000;
+     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+ }
 
-#pannelloAggiungiSonno.open {
-    display: block;
-}
+ #pannelloAggiungiSonno.open {
+     display: block;
+ }

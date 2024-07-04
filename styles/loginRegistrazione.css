@@ -1,0 +1,45 @@
+.login-container {
+    max-width: 400px;
+    font-size: 22px;
+}
+
+.logo {
+    width: 130px;
+}
+
+.formInput {
+    border-radius: 25px;
+    background-color: #fafafa;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 17px;
+    max-width: 100%;
+    padding: 8px 15px;
+    font-size: 20px;
+}
+
+@media (max-width: 991px) {
+    .formInput {
+        padding-right: 20px;
+        white-space: normal;
+    }
+
+    .login-button {
+        padding: 8px 20px;
+    }
+}
+
+.forgot-password {
+    color: #64b0c7;
+    font-size: 16px;
+    text-align: center;
+}
+
+.login-text {
+    color: rgba(85, 170, 227, 1);
+    text-decoration: none;
+}
+
+.registrazione-text {
+    color: black;
+    text-decoration: none;
+}

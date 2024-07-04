@@ -1,94 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registrazione</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <!-- Stili applicati -->
-  <link href="styles/general.css" rel="stylesheet">
-  <link href="styles/login_test.css" rel="stylesheet">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Karantina:wght@400&family=Inter:wght@400&family=Inder&display=swap');
-  </style>
-  <script>
-    // Configurazione tailwind.config.js per colori e font
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            primary: {
-              "50": "#eff6ff", "100": "#dbeafe", "200": "#bfdbfe", "300": "#93c5fd",
-              "400": "#60a5fa", "500": "#3b82f6", "600": "#2563eb", "700": "#1d4ed8",
-              "800": "#1e40af", "900": "#1e3a8a", "950": "#172554"
-            }
-          },
-          fontFamily: {
-            'body': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
-            'sans': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif']
-          }
-        }
-      }
-    }
-  </script>
-</head>
-<body class="bg-gray-50 dark:bg-gray-900">
+  <title>L.I.F.E | Area Registrazione</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<section class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-    <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
-        <img class="w-20 h-20 mr-2" src="https://cdn.builder.io/api/v1/image/assets/TEMP/03628d78fc5e72fedd9c8471f1d3039ecff6cb30d5b6b9e5b951f05a07078103?apiKey=40a13daf02674cdaa0209479a7976f2a&" alt="Main Logo">
-        <span class="logo-text">L.I.F.E.</span>
-    </a>
-  <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-      <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-        Registrati
-      </h1>
-      <form class="space-y-4 md:space-y-6" action="#">
-        <div>
-          <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
-          <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Nome completo" required="">
-        </div>
-        <div>
-          <label for="surname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cognome</label>
-          <input type="text" name="surname" id="surname" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Cognome" required="">
-        </div>
-        <div>
-          <label for="age" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Età</label>
-          <input type="number" name="age" id="age" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Età" required="">
-        </div>
-        <div>
-          <label for="weight" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Peso</label>
-          <input type="number" name="weight" id="weight" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Peso in kg" required="">
-        </div>
-        <div>
-          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">La tua email</label>
-          <input type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@company.com" required="">
-        </div>
-        <div>
-          <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-          <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-        </div>
-        <div>
-          <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Conferma Password</label>
-          <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-        </div>
-        <div class="flex items-center justify-between">
-          <div class="flex items-start">
-            <div class="flex items-center h-5">
-              <input id="terms" aria-describedby="terms" type="checkbox" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" required="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karantina:wght@400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inder&display=swap">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles/loginRegistrazione.css">
+  <link rel="stylesheet" href="styles/general.css">
+
+</head>
+
+<body>
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-center login-container">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/03628d78fc5e72fedd9c8471f1d3039ecff6cb30d5b6b9e5b951f05a07078103?apiKey=40a13daf02674cdaa0209479a7976f2a&"
+          alt="Main Logo" class="logo mb-4">
+        <p class="mb-4">
+          <a href="login.html" class="registrazione-text fs-5">LOGIN</a> / <a href="registrazione.html"
+            class="login-text fs-3">REGISTRATI</a>
+        </p>
+        <div class="container">
+          <form>
+            <div class="mb-3">
+              <label for="nomeInput" class="visually-hidden">Nome</label>
+              <input type="text" class="form-control formInput" id="nomeInput" placeholder="Nome" aria-label="Nome">
             </div>
-            <div class="ml-3 text-sm">
-              <label for="terms" class="text-gray-500 dark:text-gray-300">Accetto i Termini e Condizioni<a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Termini e Condizioni</a></label>
+            <div class="mb-3">
+              <label for="cognomeInput" class="visually-hidden">Cognome</label>
+              <input type="text" class="form-control formInput" id="cognomeInput" placeholder="Cognome"
+                aria-label="Cognome">
             </div>
-          </div>
+            <div class="mb-3">
+              <label for="etaInput" class="visually-hidden">Età</label>
+              <input type="number" class="form-control formInput" id="etaInput" placeholder="Età" aria-label="Età">
+            </div>
+            <div class="mb-3">
+              <label for="sessoInput" class="visually-hidden">Sesso</label>
+              <select class="form-control formInput" id="sessoInput" aria-label="Sesso">
+                <option value="" disabled selected>Seleziona il sesso</option>
+                <option value="maschio">Maschio</option>
+                <option value="femmina">Femmina</option>
+                <option value="altro">Altro</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="altezzaInput" class="visually-hidden">Altezza</label>
+              <input type="number" class="form-control formInput" id="altezzaInput" placeholder="Altezza (cm)"
+                aria-label="Altezza">
+            </div>
+            <div class="mb-3">
+              <label for="pesoInput" class="visually-hidden">Peso</label>
+              <input type="number" class="form-control formInput" id="pesoInput" placeholder="Peso (kg)"
+                aria-label="Peso">
+            </div>
+            <div class="mb-3">
+              <label for="emailInput" class="visually-hidden">Email</label>
+              <input type="email" class="form-control formInput" id="emailInput" placeholder="Email" aria-label="Email">
+            </div>
+            <div class="mb-3">
+              <label for="pwdInput" class="visually-hidden">Password</label>
+              <input type="password" class="form-control formInput" id="pwdInput" placeholder="Password"
+                aria-label="Password">
+            </div>
+            <div class="mb-3">
+              <label for="confirmPwdInput" class="visually-hidden">Conferma Password</label>
+              <input type="password" class="form-control formInput" id="confirmPwdInput" placeholder="Conferma Password"
+                aria-label="Conferma Password">
+            </div>
+            <div class="text-center mb-3">
+              <button class="bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold fs-4 mt-3"
+                tabindex="0">Registrati</button>
+            </div>
+          </form>
         </div>
-        <button type="submit" class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Registrati</button>
-        <div class="flex items-center justify-between">
-            <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-    Hai già un account? Accedi
-            </p>
-            
-        
-    
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

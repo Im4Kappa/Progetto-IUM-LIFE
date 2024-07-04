@@ -92,8 +92,8 @@ fetchJSONFile(pth, function (data) {
     utenteCompleto = getUserSession(data, idSessione);
 
     // Esempio di utilizzo delle informazioni dell'utente
-    console.log(utenteCompleto.nomeUtente); // Stampa il nome dell'utente
+    /*console.log(utenteCompleto.nomeUtente); // Stampa il nome dell'utente
     console.log(utenteCompleto.emailUtente); // Stampa l'email dell'utente
     console.log(calcolaIMC(utenteCompleto.pesoUtente, utenteCompleto.altezzaUtente)); // Calcola e stampa l'IMC
-    console.log(calcolaIBM(data, utenteCompleto.userId)); // Calcola e stampa il peso ideale
+    console.log(calcolaIBM(data, utenteCompleto.userId)); // Calcola e stampa il peso ideale*/
 });

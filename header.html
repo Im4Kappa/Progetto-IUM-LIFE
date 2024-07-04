@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karantina:wght@400&display=swap">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Stili nostri -->
   <link rel="stylesheet" href="styles/general.css">
   <link rel="stylesheet" href="styles/header.css">
 
-</head>
-<body>
-  <header class="header d-flex justify-content-between align-items-center">
-    <a href="dashboardUtente.html" class="d-flex align-items-center text-decoration-none">
-      <div class="logo-container d-flex align-items-center">
-        <img loading="lazy" src="res/imgs/logo/LIFElogo.png" class="logo-image" alt="L.I.F.E. logo" />
-        <h1 style="color:white;" class="logo-text ms-2 mb-0">L.I.F.E.</h1>
-      </div>
-    </a>
-    <div class="user-info d-none d-md-block">
-      <img loading="lazy" src="res/imgs/icons/user.png" class="user-avatar" alt="User avatar" />
-    </div>
-  </header>
-  <div class="user-info-mobile d-flex justify-content-center d-md-none mt-2">
-  </div>
-
+  <!-- Scripts nostri -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="scripts/userSession.js"></script>
   <script src="scripts/caricaJSON.js"></script>
+
+</head>
+
+<body>
+
+  <!-- INIZIO HEADER PER DESKTOP -->
+  <header class="header d-none d-md-flex justify-content-between align-items-center mb-5">
+    <a href="dashboardUtente.html" class="d-flex align-items-center text-decoration-none">
+      <div class="logo-container d-flex align-items-center">
+        <img loading="lazy" src="res/imgs/logo/LIFElogo.png" class="logo-image" alt="L.I.F.E. logo" />
+        <h1 class="logo-text mb-0">L.I.F.E.</h1>
+      </div>
+    </a>
+    <div class="user-info mx-4">
+      <a href="infoUtente.html"><i class="bi bi-person-circle fs-1 userInfoLogo"></i></a>
+    </div>
+  </header>
+  <!-- FINE HEADER PER DESKTOP -->
+
+  <!-- INIZIO HEADER PER MOBILE -->
+  <header class="headerMobile d-flex d-md-none justify-content-between align-items-center mb-5 mt-5">
+    <a href="dashboardUtente.html" class="d-flex align-items-center text-decoration-none">
+      <div class="logo-container d-flex align-items-center pe-4">
+        <img loading="lazy" src="res/imgs/logo/LIFElogo.png" class="logo-image" alt="L.I.F.E. logo" />
+        <h1 class="logo-text mb-0">L.I.F.E.</h1>
+      </div>
+    </a>
+    <div class="user-info mx-4">
+      <a href="infoUtente.html"><i class="bi bi-person-circle userInfoLogo fw-bold"></i></a>
+    </div>
+  </header>
+  <!-- FINE HEADER PER MOBILE -->
+
 </body>
+
 </html>

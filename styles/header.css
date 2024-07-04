@@ -2,8 +2,12 @@
 
 .header {
     background: linear-gradient(93deg, var(--color-header-gradient1) 0%, var(--color-header-gradient2) 102.84%);
-    padding: 10px 20px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 1px;
+}
+
+.headerMobile {
+    height: 20% !important;
 }
 
 .logo-container {
@@ -12,7 +16,7 @@
 }
 
 .logo-image {
-    width: 74px;
+    width: 64px;
 }
 
 .logo-text {
@@ -26,25 +30,22 @@
     align-items: center;
 }
 
-.user-avatar {
-    width: 49px;
-}
-
-.user-info-mobile {
-    background: linear-gradient(93deg, var(--color-header-gradient1) 0%, var(--color-header-gradient2) 102.84%);
-    padding: 10px;
-}
-
-@media (max-width: 991px) {
-    .header {
-        justify-content: center;
-    }
+@media (max-width: 768px) {
     .logo-container {
-        margin-right: auto;
+        background: linear-gradient(93deg, var(--color-header-gradient1) 0%, var(--color-header-gradient2) 102.84%);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     }
-    .user-info-mobile {
-        display: flex;
-        justify-content: center;
-        padding: 10px;
+
+    .logo-image {
+        width: 48px;
+    }
+
+    .logo-text {
+        font-size: 38px;
+        margin-left: 10px;
+    }
+
+    .userInfoLogo {
+        font-size: 40px !important;
     }
 }

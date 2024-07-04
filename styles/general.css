@@ -44,6 +44,23 @@ a {
     text-align: center;
 }
 
+.bottoneConsigliami {
+    border-radius: 60px;
+    color: black;
+    background: rgb(255, 255, 130);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    text-align: center;
+}
+
+.consiglioAlert {
+    background-color: rgb(255, 255, 130) !important;
+    color: black !important;
+    max-width: 350px !important;
+    display: none;
+    margin-left: 10px;
+}
+
 /* PER RENDERE LE LISTE (UL LI) SCROLLABILI*/
 .list-group-scrollable {
     max-height: 235px !important;

@@ -19,7 +19,7 @@ function getIdSessione() {
         return userId;
         // Ora puoi utilizzare userId come necessario
     } else {
-        // Gestione nel caso in cui non ci sia alcun dato salvato
+        return null;
     }
 }
 
@@ -97,16 +97,4 @@ function calcolaIMC(peso, altezza) {
     return imc.toFixed(2);
 }
 
-/*Carica l'utente*/
-// Percorso del file JSON esterno
-let pth = 'data/utenti.json';
-// Carica il file JSON e mostrare il grafico
-fetchJSONFile(pth, function (data) {
-    utenteCompleto = getUserSession(data, idSessione);
 
-    // Esempio di utilizzo delle informazioni dell'utente
-    /*console.log(utenteCompleto.nomeUtente); // Stampa il nome dell'utente
-    console.log(utenteCompleto.emailUtente); // Stampa l'email dell'utente
-    console.log(calcolaIMC(utenteCompleto.pesoUtente, utenteCompleto.altezzaUtente)); // Calcola e stampa l'IMC
-    console.log(calcolaIBM(data, utenteCompleto.userId)); // Calcola e stampa il peso ideale*/
-});

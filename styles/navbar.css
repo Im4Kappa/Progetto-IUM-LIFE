@@ -31,6 +31,7 @@
     width: 25%;
     border-radius: 300px;
     margin-bottom: 100px;
+    margin-top: 30px !important;
     margin: 0 auto;
     padding: 12px;
     background: linear-gradient(90deg, #53a3e7 0%, #55dab9 100%);

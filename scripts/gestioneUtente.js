@@ -1,4 +1,3 @@
-const idSessione = 1;
 // Variabili esterne
 let userId;
 let nomeUtente;
@@ -11,6 +10,20 @@ let obbiettivoPassi;
 let emailUtente;
 let passwordUtente;
 let utenteCompleto;
+
+function getIdSessione() {
+    const sessionDataString = localStorage.getItem('idSessioneUtente');
+    if (sessionDataString) {
+        const sessionData = JSON.parse(sessionDataString);
+        const userId = sessionData.userId;
+        return userId;
+        // Ora puoi utilizzare userId come necessario
+    } else {
+        // Gestione nel caso in cui non ci sia alcun dato salvato
+    }
+}
+
+const idSessione = getIdSessione();
 
 // Funzione per recuperare le info di un certo utente
 function getUserSession(data, userIdInput) {

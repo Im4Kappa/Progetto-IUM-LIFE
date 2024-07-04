@@ -13,6 +13,6 @@ function aggiornaCacheEDati(fileName) {
         .catch(error => {
             console.error('Errore nel caricamento dei dati:', error);
         });
-        window.location.reload(); // Ricarica la pagina
+    window.location.reload(); // Ricarica la pagina
 }
 

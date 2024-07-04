@@ -210,7 +210,15 @@
 </html>
 
 <script>
-
+    /*Carica l'utente*/
+    // Percorso del file JSON esterno
+    let pth = 'data/utenti.json';
+    // Carica il file JSON e mostrare il grafico
+    fetchJSONFile(pth, function (data) {
+        //const userId = 1; // Sostituisci con l'ID dell'utente desiderato
+        utenteCompleto = getUserSession(data, idSessione);
+        obbiettivoIBMUtente = calcolaIBM(data, idSessione);
+    });
     /* SEZIONE PASSI */
     // Ottieni la data corrente
     const oggi = new Date();

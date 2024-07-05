@@ -4,42 +4,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap JS Bundle (with Popper) -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <title>L.I.F.E | Dashboard Alimentazione</title>
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <!-- Style nostri -->
     <link rel="stylesheet" href="styles/general.css">
-    <link rel="stylesheet" href="styles/navbar.css">
     <link rel="stylesheet" href="styles/dashboard.css">
 
     <!-- import scripts -->
-    <script src="scripts/importHeaderNavbar.js"></script>
-    <script src="scripts/provaGrafico.js"></script>
+    <script src="scripts/importHeaderNavbar.js"></script> <!-- Importa la Navbar e la Headbar -->
+    <script src="scripts/caricaJSON.js"></script>
+    <script src="scripts/utils.js"></script>
 </head>
 
 <body>
-    <!--INIZIO HEADER-->
-    <div id="header-placeholder"></div>
-    <!--FINE HEADER-->
 
-    <h1>L.I.F.E.</h1>
-    <div>
-        <canvas id="myChart"></canvas>
-    </div>
+    <!--INIZIO CONTAINER PRINCIPALE-->
+    <div class="container custom-container mt-5 px-md-5">
+        <!--TITOLO PAGINA -->
+        <div class="row mb-4 align-items-center">
+            <div class="col-12 col-md-9">
+                <h1 class="titoloPagina fw-bold">ALIMENTAZIONE</h1>
+            </div>
 
-    <!--INIZIO NAVBAR-->
-    <div id="navbar-placeholder"></div>
-    <!--FINE NAVBAR-->
+            <!-- INIZIO PANNELLO ALIMENTAZIONE -->
+            <div id="pannelloAlimentazione mb-4">
+                <div class="sottotitoloCategoria d-flex justify-content-left">
+                    <h4 class="fw-bold me-4">Calorie assunte</h4>
+                    <button class="bottoneApriPannelloAggiungi bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold"
+                        id="bottoneApriPannelloAggiungiAlimentazione"><i class="bi bi-plus-lg"></i> Aggiungi</button>
+                </div>
+                <!-- INIZIO FORM AGGIUNTA CALORIE -->
+                <div class="pannelloAggiungiDato p-4 background-light mt-2 mb-3" id="pannelloAggiungiAlimentazione">
+
+                    <button class="bottoneChiudiDesktop position-absolute fw-bold" id="bottoneChiudiDesktopAlimentazione"><i
+                            class="bi bi-x fw-bold"></i></button><!-- BOTTONE PER DESKTOP -->
+                    <h4 class="titoloPannelloAggiungiDato fw-bold d-flex"> <button class="bottoneChiudiMobile fw-bold"
+                            id="bottoneChiudiMobileAlimentazione"><i class="bi bi-chevron-left fw-bold"></i></button> Aggiungi
+                        calorie
+                    </h4>
+
+                    <form class="row g-3" id="formAggiungiAlimentazione">
+                        <div class="col-12 mb-3">
+                            <label for="selectTipoPasto" class="form-label">Tipo di pasto</label>
+                            <select id="selectTipoPasto" class="form-select form-control">
+                                <!-- Le opzioni verranno inserite qui dinamicamente dallo script JavaScript -->
+                            </select>
+                        </div>
+                    
+                        <div class="col-12 mb-3">
+                            <label for="selectAlimenti" class="form-label">Alimento</label>
+                            <select id="selectAlimenti" class="form-select form-control">
+                                <!-- Le opzioni verranno inserite qui dinamicamente dallo script JavaScript -->
+                            </select>
+                        </div>
+                        
+                        <div class="col-auto align-self-end">
+                            <input type="submit" class="bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold"
+                                id="btnAggiungiAlimentazione" value="Invia">
+                        </div>
+                    </form>
+
+                </div>
+                <div id="pannelloDashboard mb-4">
+                    <!-- Grafico Alimentazione -->
+                        <div class="row mb-3 mt-3">
+                            <!-- Crea un canvas per il grafico -->
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body text-left">
+                                        <h5 class="card-title text-muted">Andamento Alimentazione</h5>
+                                        <div class="d-inline-block d-block d-flex">
+                                            <i class="fa-solid fa-utensils fs-3"></i>&nbsp;&nbsp;
+                                            <h3 class="mb-1 fw-bold" id="totaleCalorie"></h3>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <canvas id="graficoAlimentazione" height="80"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                
+
+                    <!-- Resoconto Settimanale con scrollbar -->
+                    <div class="row mt-4">
+                        <div class="sottotitoloCategoria d-flex justify-content-left">
+                            <h4 class="fw-bold me-4">Ultima settimana</h4>
+                        </div>
+                        <div class="col-12">
+                            <div class="card-container d-flex mt-3" id="resocontoSettimanale">
+                                <!-- Qui vengono inserite dinamicamente le card quadrate -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FINE PANNELLO ALIMENTAZIONE -->
+            </div>
+            <!--FINE CONTAINER PRINCIPALE-->
 </body>
+<script src="scripts/gestioneUtente.js"></script>
+<script src="scripts/gestioneAlimentazione.js"></script>
 
-<script src="scripts/gestioneAlimentazione.js"></script> 
-<script>
-    // Esempio di utilizzo: stampa i pasti per l'utente con ID 1
-    stampaPastiUtente(1);
-</script>
 </html>

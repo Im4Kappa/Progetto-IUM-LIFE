@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         if (noteText.textContent.endsWith('...')) {
                             noteText.textContent = note.text; // Espandi il testo completo
                         } else {
-                            noteText.textContent = note.text.slice(0, 200) + '...'; // Contrai il testo
+                            noteText.textContent = note.text.slice(0, 60) + '...'; // Contrai il testo
                         }
                     });
 

@@ -26,7 +26,7 @@
     <!--INIZIO CONTAINER PRINCIPALE-->
     <div class="container custom-container mt-5 px-md-5">
         <!--TITOLO PAGINA -->
-        <h1 class="titoloPagina fw-bold mb-4" >DASHBOARD UTENTE</h1>
+        <h1 class="titoloPagina fw-bold mb-4">DASHBOARD UTENTE</h1>
         <div class="sottotitoloCategoria d-flex justify-content-left">
             <h4 class="fw-bold me-4" id="benvenutoDashboard"></h4>
         </div>
@@ -115,14 +115,33 @@
                 </div>
                 <!-- FINE COLONNA DX -->
             </div>
-        </div>
+            <!-- Grafico Sonno -->
+                <div class="row mb-3 mt-3">
+                    <!-- Crea un canvas per il grafico -->
+                    <div class="col-12 w-100">
+                        <div class="card">
+                            <div class="card-body text-left">
+                                <h5 class="card-title text-muted">Andamento Sonno</h5>
+                                <div class="d-inline-block d-block d-flex">
+                                    <i class="fa-solid fa-moon fs-3"></i>&nbsp;&nbsp;
+                                    <h3 class="mb-1 fw-bold" id="mediaSonno"></h3>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-center align-items-center">
+                                    <canvas id="graficoSonno" height="80"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <!-- FINE PANNELLO DASHBOARD -->
     </div>
     <!--FINE CONTAINER PRINCIPALE-->
 </body>
 
 </html>
-
+<script src="scripts/gestioneSonno.js"></script>
 <script>
 
     /*Carica l'utente*/
@@ -159,4 +178,7 @@
         graficoPeso(data, idSessione);
     });
     /* FINE SEZIONE PESO */
+
+
+
 </script>

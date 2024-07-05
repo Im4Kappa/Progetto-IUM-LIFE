@@ -3,25 +3,25 @@
         "userId": 1,
         "nome": "Mario",
         "cognome": "Rossi",
-        "eta": 30,
+        "eta": 23,
         "sesso": "M",
-        "altezza": 170,
+        "altezza": 171,
         "peso": 77,
         "obbiettivoPassi": 1000,
         "email": "mario@example.com",
-        "password": "password123"
+        "password": "nonteladico"
     },
     {
         "userId": 2,
-        "nome": "Anna",
-        "cognome": "Verdi",
-        "eta": 25,
+        "nome": "Greta",
+        "cognome": "Rinaldi",
+        "eta": 29,
         "sesso": "F",
-        "altezza": 160,
+        "altezza": 163,
         "peso": 55,
         "obbiettivoPassi": 8000,
-        "email": "anna@example.com",
-        "password": "securepass"
+        "email": "greta@example.com",
+        "password": "gretagolosa"
     },
     {
         "userId": 3,

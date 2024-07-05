@@ -69,16 +69,25 @@
                 </div>
                 <div id="pannelloDashboard mb-4">
                     <!-- Grafico Sonno -->
-                    <div class="row mt-3 ">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Andamento Sonno</h5>
-                                    <canvas id="graficoSonno" height="90"></canvas>
+                        <div class="row mb-3 mt-3">
+                            <!-- Crea un canvas per il grafico -->
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body text-left">
+                                        <h5 class="card-title text-muted">Andamento Sonno</h5>
+                                        <div class="d-inline-block d-block d-flex">
+                                            <i class="fa-solid fa-moon fs-3"></i>&nbsp;&nbsp;
+                                            <h3 class="mb-1 fw-bold" id="mediaSonno"></h3>
+                                        </div>
+                                        <hr>
+                                        <div class="d-flex justify-content-center align-items-center">
+                                            <canvas id="graficoSonno" height="80"></canvas>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>                
+
                     <!-- Resoconto Settimanale con scrollbar -->
                     <div class="row mt-4">
                         <div class="sottotitoloCategoria d-flex justify-content-left">

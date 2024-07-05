@@ -15,7 +15,7 @@
     position: relative;
 }
 
-.form-control{
+.form-control {
     border-radius: 25px !important;
     background-color: #fafafa !important;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) !important;
@@ -85,4 +85,9 @@
         left: 0;
         margin-left: -15px;
     }
+}
+
+.formInput {
+    margin-top: 3px !important;
+    margin-left: -3px !important;
 }

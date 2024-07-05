@@ -272,11 +272,13 @@ function aggiungiPassiFormPHP() {
                 if (data.message) {
                     // Ricarica la cache e la pagina
                     aggiornaCacheEDati("passiUtenti.json");
-                }                
+                }
             })
             .catch(error => {
                 console.error('Errore:', error);
             });
+        // Ricarica la cache e la pagina
+        aggiornaCacheEDati("passiUtenti.json");
     });
 }
 

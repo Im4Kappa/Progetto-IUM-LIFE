@@ -1,5 +1,5 @@
-// Funzione per caricare e utilizzare il file JSON esterno
-function fetchJSONFile(path, callback) {
+// Funzione per caricare e utilizzare il file JSON esterno VECCHIA VERSIONE
+/*function fetchJSONFile(path, callback) {
     fetch(path)
         .then(response => {
             if (!response.ok) {
@@ -13,7 +13,7 @@ function fetchJSONFile(path, callback) {
         .catch(error => {
             console.error('Error fetching JSON:', error);
         });
-}
+}*/
 
 /*ESEMPIO UTILIZZO:
 
@@ -24,3 +24,16 @@ fetchJSONFile(pathToJson, function(data) {
     const resFunzione = funzione(data, 1);
     console.log(resFunzione);
 });*/
+
+// Funzione per caricare e utilizzare il file JSON esterno NUOVA VERSIONE
+function fetchJSONFile(path, callback) {
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function () {
+        if (httpRequest.readyState === 4 && httpRequest.status === 200) {
+            var data = JSON.parse(httpRequest.responseText);
+            if (callback) callback(data);
+        }
+    };
+    httpRequest.open('GET', path);
+    httpRequest.send(); 
+}

@@ -43,42 +43,42 @@
             <div class="col-md-6">
                 <div class="container">
                     <form>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="nomeInput" class="visually-hidden">Nome</label>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="nomeInput">Nome</label>
                                 <input type="text" class="form-control formInput" id="nomeInput" placeholder="Nome"
                                     aria-label="Nome">
                             </div>
-                            <div class="col-md-6">
-                                <label for="cognomeInput" class="visually-hidden">Cognome</label>
+                            <div class="col-md-6 mb-4">
+                                <label for="cognomeInput">Cognome</label>
                                 <input type="text" class="form-control formInput" id="cognomeInput"
                                     placeholder="Cognome" aria-label="Cognome">
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="etaInput" class="visually-hidden">Età</label>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="etaInput">Età</label>
                                 <input type="number" class="form-control formInput" id="etaInput" placeholder="Età"
                                     aria-label="Età">
                             </div>
-                            <div class="col-md-6">
-                                <label for="sessoInput" class="visually-hidden">Sesso</label>
+                            <div class="col-md-6 mb-4">
+                                <label for="sessoInput">Sesso</label>
                                 <select class="form-control formInput" id="sessoInput" aria-label="Sesso">
                                     <option value="" disabled selected>Sesso</option>
-                                    <option value="maschio">Maschio</option>
-                                    <option value="femmina">Femmina</option>
-                                    <option value="altro">Altro</option>
+                                    <option value="M">Maschio</option>
+                                    <option value="F">Femmina</option>
+                                    <option value="ALTRO">Altro</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label for="altezzaInput" class="visually-hidden">Altezza</label>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label for="altezzaInput">Altezza</label>
                                 <input type="number" class="form-control formInput" id="altezzaInput"
                                     placeholder="Altezza (cm)" aria-label="Altezza">
                             </div>
-                            <div class="col-md-6">
-                                <label for="pwdInput" class="visually-hidden">Password</label>
+                            <div class="col-md-6 mb-4">
+                                <label for="pwdInput">Password</label>
                                 <input type="password" class="form-control formInput" id="pwdInput"
                                     placeholder="Password" aria-label="Password">
                             </div>
@@ -98,20 +98,33 @@
 
 <!-- Scripts nostri -->
 <script src="scripts/logout.js"></script>
+<script src="scripts/gestioneInfoUtente.js"></script>
 <script>
-    /*Carica l'utente*/
-    // Percorso del file JSON esterno
-    let pth = 'data/utenti.json';
-    // Carica il file JSON e mostrare il grafico
-    fetchJSONFile(pth, function (data) {
-        utenteCompleto = getUserSession(data, idSessione);
+    let pathToJson = 'data/utenti.json';
 
-        // Esempio di utilizzo delle informazioni dell'utente
-        /*console.log(utenteCompleto.nomeUtente); // Stampa il nome dell'utente
-        console.log(utenteCompleto.emailUtente); // Stampa l'email dell'utente
-        console.log(calcolaIMC(utenteCompleto.pesoUtente, utenteCompleto.altezzaUtente)); // Calcola e stampa l'IMC
-        console.log(calcolaIBM(data, utenteCompleto.userId)); // Calcola e stampa il peso ideale*/
-    });    
+    // Carica il file JSON e mostra il form popolato
+    fetchJSONFile(pathToJson, function (data) {
+        let utenteCompleto = getUserSession(data, idSessione);
+
+        // Popola il form con i dati dell'utente
+        document.getElementById('nomeInput').value = utenteCompleto.nomeUtente;
+        document.getElementById('cognomeInput').value = utenteCompleto.cognomeUtente;
+        document.getElementById('etaInput').value = utenteCompleto.etaUtente;
+        document.getElementById('sessoInput').value = utenteCompleto.sessoUtente;
+        document.getElementById('altezzaInput').value = utenteCompleto.altezzaUtente;
+        document.getElementById('pwdInput').value = utenteCompleto.passwordUtente;
+        // Imposta il valore del campo sesso
+        let sessoInput = document.getElementById('sessoInput');
+        for (let i = 0; i < sessoInput.options.length; i++) {
+            if (sessoInput.options[i].value === utenteCompleto.sessoUtente) {
+                //console.log(sessoInput.options[i].value);
+                sessoInput.selectedIndex = i;
+                break;
+            }
+        }
+    });
+    userId = getIdSessione();
+    modificaInfoUtenteFormPHP();
 </script>
 
 </html>

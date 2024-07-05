@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const oggi = new Date();
     const dataOdierna = oggi.toISOString().slice(0, 10);
-
+    let mediaSonno = 0;
     const userId = idSessione;
     //console.log(idSessione);
     // Percorso del file JSON per il sonno
@@ -16,6 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (userData) {
             const sleepData = userData.sleepHours;
+            
+            // Calcola la media delle ore di sonno
+            const totalSleep = sleepData.reduce((acc, entry) => acc + entry.hours, 0);
+            mediaSonno = parseFloat((totalSleep / sleepData.length).toFixed(1));        
+            //console.log(mediaSonno);   
+            document.getElementById("mediaSonno").innerHTML = mediaSonno+"h in media al giorno"; 
 
             // Ordina i dati per data crescente
             sleepData.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -34,7 +40,10 @@ document.addEventListener('DOMContentLoaded', function () {
 function graficoSonno(sleepData, userId) {
     const labels = sleepData.map(item => item.date);
     const oreSonno = sleepData.map(item => item.hours); // Modifica per riflettere la struttura del JSON
-    document.getElementById("aggiungiOreSonnoInput").value=oreSonno[oreSonno.length - 1];
+    if(document.getElementById("aggiungiOreSonnoInput"))
+    {
+        document.getElementById("aggiungiOreSonnoInput").value=oreSonno[oreSonno.length - 1];
+    }
     const ctx = document.getElementById('graficoSonno').getContext('2d');
     new Chart(ctx, {
         type: 'line',

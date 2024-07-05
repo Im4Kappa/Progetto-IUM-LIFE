@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function () {
 document.getElementById('logoutBtn').addEventListener('click', function() {
     // Esegui il logout dell'utente
     // Ad esempio, pulisci localStorage o cookie
@@ -6,4 +7,5 @@ document.getElementById('logoutBtn').addEventListener('click', function() {
     //console.log("usrId "+localStorage.getItem('idSessioneUtente'));
     // Reindirizza l'utente alla pagina di login o alla home
     window.location.href = 'login.html'; // Cambia 'login.html' con il percorso corretto
+});
 });

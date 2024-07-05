@@ -1,0 +1,39 @@
+{
+    "users": [
+        {
+            "userId": 1,
+            "notes": [
+                {
+                    "text": "Prima nota per l'utente 1",
+                    "date": "2024-07-01"
+                },
+                {
+                    "text": "Seconda nota per l'utente 1",
+                    "date": "2024-07-03"
+                }
+            ]
+        },
+        {
+            "userId": 2,
+            "notes": [
+                {
+                    "text": "Prima nota per l'utente 2",
+                    "date": "2024-07-02"
+                }
+            ]
+        },
+        {
+            "userId": 3,
+            "notes": [
+                {
+                    "text": "Prima nota per l'utente 3",
+                    "date": "2024-07-04"
+                },
+                {
+                    "text": "Seconda nota per l'utente 3",
+                    "date": "2024-07-05"
+                }
+            ]
+        }
+    ]
+}

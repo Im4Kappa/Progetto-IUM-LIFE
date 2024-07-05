@@ -4,11 +4,15 @@
             "userId": 1,
             "notes": [
                 {
-                    "text": "Prima nota per l'utente 1",
+                    "noteId": 1,
+                    "title": "Nota importante",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum euismod arcu, id blandit libero venenatis et. Integer in faucibus odio. Vivamus dapibus metus ut turpis tristique, sit amet luctus libero tempor. Nulla facilisi. Vestibulum malesuada odio vel quam vulputate, eget feugiat erat venenatis. Curabitur eget tristique felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut tincidunt nunc eu sem vehicula, sed pharetra urna varius. Curabitur in diam in lectus euismod lacinia. Nam vel tristique sem, at tincidunt libero. Aenean maximus tellus eget est commodo, in ultricies felis dapibus. In hac habitasse platea dictumst. Nullam dapibus risus velit, a tincidunt nisi viverra a. Nullam malesuada risus eget malesuada tempor. Donec finibus tortor eget diam pellentesque dictum.",
                     "date": "2024-07-01"
                 },
                 {
-                    "text": "Seconda nota per l'utente 1",
+                    "noteId": 2,
+                    "title": "Promemoria",
+                    "text": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla et interdum nunc. Praesent ultricies erat sed ultricies pellentesque. In pulvinar consequat quam, nec condimentum mauris molestie ut. Aliquam erat volutpat. Duis condimentum massa at erat auctor, in interdum velit rhoncus. Nulla facilisi. Nullam placerat nisi id consectetur laoreet. Mauris suscipit eget nisl ac iaculis. Suspendisse posuere augue ac lorem congue, at volutpat sem lobortis. Proin quis libero quis eros aliquet interdum. Integer congue orci vel felis elementum, vel malesuada lorem pharetra. Duis vitae lobortis nulla. Aliquam consectetur, orci at lobortis pharetra, libero lectus varius dui, non consequat odio eros at mi.",
                     "date": "2024-07-03"
                 }
             ]
@@ -17,8 +21,46 @@
             "userId": 2,
             "notes": [
                 {
-                    "text": "Prima nota per l'utente 2",
-                    "date": "2024-07-02"
+                    "noteId": "SUb",
+                    "title": "Domande giornaliere",
+                    "text": "Come è andata la tua giornata oggi? Quali sono stati i momenti più significativi? Cosa hai imparato di nuovo oggi? Hai avuto qualche difficoltà da superare? Qual è stato il tuo stato emotivo dominante oggi? Cosa ti ha dato più gioia oggi? Hai avuto modo di fare una pausa rilassante durante la giornata? Qual è stato il miglior aspetto della tua giornata? Qual è stata la tua più grande realizzazione oggi? Hai avuto delle interazioni significative con altre persone oggi?",
+                    "date": "2024-07-05"
+                },
+                {
+                    "noteId": "RlG",
+                    "title": "Prova di testo",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum euismod arcu, id blandit libero venenatis et. Integer in faucibus odio. Vivamus dapibus metus ut turpis tristique, sit amet luctus libero tempor. Nulla facilisi. Vestibulum malesuada odio vel quam vulputate, eget feugiat erat venenatis. Curabitur eget tristique felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut tincidunt nunc eu sem vehicula, sed pharetra urna varius. Curabitur in diam in lectus euismod lacinia. Nam vel tristique sem, at tincidunt libero. Aenean maximus tellus eget est commodo, in ultricies felis dapibus. In hac habitasse platea dictumst. Nullam dapibus risus velit, a tincidunt nisi viverra a. Nullam malesuada risus eget malesuada tempor. Donec finibus tortor eget diam pellentesque dictum. Sed sit amet libero et libero tincidunt maximus. Nullam quis magna vitae eros ullamcorper tempus non sed arcu. Nulla sollicitudin ipsum ut justo sollicitudin, a efficitur ligula interdum.",
+                    "date": "2024-07-05"
+                },
+                {
+                    "noteId": "Yk0",
+                    "title": "Titolo di testo",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum euismod arcu, id blandit libero venenatis et. Integer in faucibus odio. Vivamus dapibus metus ut turpis tristique, sit amet luctus libero tempor. Nulla facilisi. Vestibulum malesuada odio vel quam vulputate, eget feugiat erat venenatis. Curabitur eget tristique felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut tincidunt nunc eu sem vehicula, sed pharetra urna varius. Curabitur in diam in lectus euismod lacinia. Nam vel tristique sem, at tincidunt libero. Aenean maximus tellus eget est commodo, in ultricies felis dapibus. In hac habitasse platea dictumst. Nullam dapibus risus velit, a tincidunt nisi viverra a. Nullam malesuada risus eget malesuada tempor. Donec finibus tortor eget diam pellentesque dictum. Sed sit amet libero et libero tincidunt maximus. Nullam quis magna vitae eros ullamcorper tempus non sed arcu. Nulla sollicitudin ipsum ut justo sollicitudin, a efficitur ligula interdum.",
+                    "date": "2024-07-05"
+                },
+                {
+                    "noteId": "vmC",
+                    "title": "Testo nuovo",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum euismod arcu, id blandit libero venenatis et. Integer in faucibus odio. Vivamus dapibus metus ut turpis tristique, sit amet luctus libero tempor. Nulla facilisi. Vestibulum malesuada odio vel quam vulputate, eget feugiat erat venenatis. Curabitur eget tristique felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut tincidunt nunc eu sem vehicula, sed pharetra urna varius. Curabitur in diam in lectus euismod lacinia. Nam vel tristique sem, at tincidunt libero. Aenean maximus tellus eget est commodo, in ultricies felis dapibus. In hac habitasse platea dictumst. Nullam dapibus risus velit, a tincidunt nisi viverra a. Nullam malesuada risus eget malesuada tempor. Donec finibus tortor eget diam pellentesque dictum. Sed sit amet libero et libero tincidunt maximus. Nullam quis magna vitae eros ullamcorper tempus non sed arcu. Nulla sollicitudin ipsum ut justo sollicitudin, a efficitur ligula interdum.",
+                    "date": "2024-07-05"
+                },
+                {
+                    "noteId": "0tK",
+                    "title": "Nota in testa",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum euismod arcu, id blandit libero venenatis et. Integer in faucibus odio. Vivamus dapibus metus ut turpis tristique, sit amet luctus libero tempor. Nulla facilisi. Vestibulum malesuada odio vel quam vulputate, eget feugiat erat venenatis. Curabitur eget tristique felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut tincidunt nunc eu sem vehicula, sed pharetra urna varius. Curabitur in diam in lectus euismod lacinia. Nam vel tristique sem, at tincidunt libero. Aenean maximus tellus eget est commodo, in ultricies felis dapibus. In hac habitasse platea dictumst. Nullam dapibus risus velit, a tincidunt nisi viverra a. Nullam malesuada risus eget malesuada tempor. Donec finibus tortor eget diam pellentesque dictum. Sed sit amet libero et libero tincidunt maximus. Nullam quis magna vitae eros ullamcorper tempus non sed arcu. Nulla sollicitudin ipsum ut justo sollicitudin, a efficitur ligula interdum.",
+                    "date": "2024-07-05"
+                },
+                {
+                    "noteId": "S6a",
+                    "title": "Titolo vuoto",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum euismod arcu, id blandit libero venenatis et. Integer in faucibus odio. Vivamus dapibus metus ut turpis tristique, sit amet luctus libero tempor. Nulla facilisi. Vestibulum malesuada odio vel quam vulputate, eget feugiat erat venenatis. Curabitur eget tristique felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut tincidunt nunc eu sem vehicula, sed pharetra urna varius. Curabitur in diam in lectus euismod lacinia. Nam vel tristique sem, at tincidunt libero. Aenean maximus tellus eget est commodo, in ultricies felis dapibus. In hac habitasse platea dictumst. Nullam dapibus risus velit, a tincidunt nisi viverra a. Nullam malesuada risus eget malesuada tempor. Donec finibus tortor eget diam pellentesque dictum. Sed sit amet libero et libero tincidunt maximus. Nullam quis magna vitae eros ullamcorper tempus non sed arcu. Nulla sollicitudin ipsum ut justo sollicitudin, a efficitur ligula interdum.",
+                    "date": "2024-07-05"
+                },
+                {
+                    "noteId": "QKK",
+                    "title": "Ciao",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum euismod arcu, id blandit libero venenatis et. Integer in faucibus odio. Vivamus dapibus metus ut turpis tristique, sit amet luctus libero tempor. Nulla facilisi. Vestibulum malesuada odio vel quam vulputate, eget feugiat erat venenatis. Curabitur eget tristique felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut tincidunt nunc eu sem vehicula, sed pharetra urna varius. Curabitur in diam in lectus euismod lacinia. Nam vel tristique sem, at tincidunt libero. Aenean maximus tellus eget est commodo, in ultricies felis dapibus. In hac habitasse platea dictumst. Nullam dapibus risus velit, a tincidunt nisi viverra a. Nullam malesuada risus eget malesuada tempor. Donec finibus tortor eget diam pellentesque dictum. Sed sit amet libero et libero tincidunt maximus. Nullam quis magna vitae eros ullamcorper tempus non sed arcu. Nulla sollicitudin ipsum ut justo sollicitudin, a efficitur ligula interdum.",
+                    "date": "2024-07-05"
                 }
             ]
         },
@@ -26,11 +68,15 @@
             "userId": 3,
             "notes": [
                 {
-                    "text": "Prima nota per l'utente 3",
+                    "noteId": 1,
+                    "title": "Meeting",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum euismod arcu, id blandit libero venenatis et. Integer in faucibus odio. Vivamus dapibus metus ut turpis tristique, sit amet luctus libero tempor. Nulla facilisi. Vestibulum malesuada odio vel quam vulputate, eget feugiat erat venenatis. Curabitur eget tristique felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut tincidunt nunc eu sem vehicula, sed pharetra urna varius. Curabitur in diam in lectus euismod lacinia. Nam vel tristique sem, at tincidunt libero. Aenean maximus tellus eget est commodo, in ultricies felis dapibus. In hac habitasse platea dictumst. Nullam dapibus risus velit, a tincidunt nisi viverra a. Nullam malesuada risus eget malesuada tempor. Donec finibus tortor eget diam pellentesque dictum.",
                     "date": "2024-07-04"
                 },
                 {
-                    "text": "Seconda nota per l'utente 3",
+                    "noteId": 2,
+                    "title": "Progetto X",
+                    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum euismod arcu, id blandit libero venenatis et. Integer in faucibus odio. Vivamus dapibus metus ut turpis tristique, sit amet luctus libero tempor. Nulla facilisi. Vestibulum malesuada odio vel quam vulputate, eget feugiat erat venenatis. Curabitur eget tristique felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut tincidunt nunc eu sem vehicula, sed pharetra urna varius. Curabitur in diam in lectus euismod lacinia. Nam vel tristique sem, at tincidunt libero. Aenean maximus tellus eget est commodo, in ultricies felis dapibus. In hac habitasse platea dictumst. Nullam dapibus risus velit, a tincidunt nisi viverra a. Nullam malesuada risus eget malesuada tempor. Donec finibus tortor eget diam pellentesque dictum.",
                     "date": "2024-07-05"
                 }
             ]

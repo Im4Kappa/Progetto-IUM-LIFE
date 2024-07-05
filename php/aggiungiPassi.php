@@ -1,13 +1,27 @@
 <?php
 // Percorso del file JSON
-$file = '../data/passiUtenti.json';
+$file = '../data/diarioUtenti.json';
 
 // Ottieni i dati inviati dalla richiesta POST
 $postData = json_decode(file_get_contents('php://input'), true);
 
-$newSteps = [
-    "date" => $postData['date'],
-    "steps" => $postData['steps']
+// Funzione per generare un noteId casuale
+function generateRandomId($length = 8) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=';
+    $randomString = '';
+
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, strlen($characters) - 1)];
+    }
+
+    return $randomString;
+}
+
+$newNote = [
+    "noteId" => generateRandomId(), // Genera un noteId casuale
+    "title" => $postData['title'],
+    "text" => $postData['text'],
+    "date" => date('Y-m-d') // Utilizza la data corrente come data della nota
 ];
 
 // Decodifica il contenuto del file JSON in un array associativo
@@ -18,23 +32,15 @@ $userId = $postData['userId'];
 $userIndex = array_search($userId, array_column($data['users'], 'userId'));
 
 if ($userIndex !== false) {
-    // Verifica se esiste già un passo per la data specificata
-    $dateIndex = array_search($newSteps['date'], array_column($data['users'][$userIndex]['steps'], 'date'));
-
-    if ($dateIndex !== false) {
-        // Se la data esiste, sostituisci i passi
-        $data['users'][$userIndex]['steps'][$dateIndex]['steps'] = $newSteps['steps'];
-    } else {
-        // Se la data non esiste, aggiungi i nuovi passi in testa all'array
-        array_unshift($data['users'][$userIndex]['steps'], $newSteps);
-    }
+    // Aggiungi la nuova nota all'array di note dell'utente
+    array_unshift($data['users'][$userIndex]['notes'], $newNote);
 
     // Codifica nuovamente i dati in formato JSON
     $jsonData = json_encode($data, JSON_PRETTY_PRINT);
 
     // Scrivi i dati nel file JSON
     if (file_put_contents($file, $jsonData)) {
-        echo json_encode(['message' => 'Passi aggiunti con successo']);
+        echo json_encode(['message' => 'Nota aggiunta con successo', 'noteId' => $newNote['noteId']]);
     } else {
         http_response_code(500); // Internal Server Error
         echo json_encode(['error' => 'Errore durante l\'aggiornamento del file JSON']);

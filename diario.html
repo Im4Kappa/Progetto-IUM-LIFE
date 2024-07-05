@@ -14,82 +14,72 @@
   <!-- import scripts -->
   <script src="scripts/importHeaderNavbar.js"></script> <!-- Importa la Navbar e la Headbar -->
   <script src="scripts/gestioneUtente.js"></script>
-  <script src="scripts/gestionePassi.js"></script>
-  <script src="scripts/gestionePeso.js"></script>
   <script src="scripts/caricaJSON.js"></script>
   <script src="scripts/utils.js"></script>
-  <script src="scripts/userSession.js"></script>
-
-  <style>
-    .note-card {
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      margin: 10px;
-    }
-
-    .notes-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-  </style>
 </head>
 
 <body>
-  <div class="user-info-mobile d-flex justify-content-center d-md-none mt-2"></div>
+  <!--INIZIO CONTAINER PRINCIPALE-->
+  <div class="container custom-container mt-5 px-md-5">
+    <!--TITOLO PAGINA -->
+    <h1 class="titoloPagina fw-bold mb-4">DIARIO PERSONALE</h1>
+    <!-- INIZIO PANNELLO PASSI -->
+    <div id="pannelloDiario" class="mb-4">
+      <div class="sottotitoloCategoria d-flex justify-content-left">
+        <h4 class="fw-bold me-4">Le mie note</h4>
+        <button class="bottoneApriPannelloAggiungi bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold"
+          id="bottoneApriPannelloAggiungiNota"><i class="bi bi-plus-lg"></i> Aggiungi</button>
+      </div>
 
-  <section class="container mx-auto mt-10">
-    <div class="flex justify-between items-center mb-6">
-      <h1 class="text-4xl font-bold">DIARIO</h1>
-      <button class="bottonePersonalizzato">+ Aggiungi</button>
+      <!-- INIZIO FORM AGGIUNTA NOTA -->
+      <div class="pannelloAggiungiDato p-4 background-light mt-2" id="pannelloAggiungiNota">
+
+        <button class="bottoneChiudiDesktop position-absolute fw-bold" id="bottoneChiudiDesktopNota"><i
+            class="bi bi-x fw-bold"></i></button><!-- BOTTONE PER DESKTOP -->
+        <h4 class="titoloPannelloAggiungiDato fw-bold d-flex"> <button class="bottoneChiudiMobile fw-bold"
+            id="bottoneChiudiMobileNota"><i class="bi bi-chevron-left fw-bold"></i></button> Aggiungi Nota</h4>
+
+        <!--TITOLO PAGINA -->
+        <div class="row align-items-center">
+          <div class="col-12 text-right pb-1">
+            <button class="bottoneConsigliami bottonePersonalizzato px-4 py-1 mb-2 text-center fw-bold"
+              id="consigliamiBtnNota"><i class="bi bi-lightbulb-fill"></i> Consigliami</button>
+          </div>
+
+          <!-- INIZIO CONSIGLIO -->
+          <div class="container text-right pb-1">
+            <div class="pannelloAggiungiDato p-4 mt-2 consiglioAlert" id="consiglioAlert" style="right:10px !important;">
+              <b>Consiglio: </b><span id="textConsiglio">A simple warning alert—check it out!</span>
+            </div>
+          </div>
+
+          <form class="row g-3" id="formAggiungiNota">
+            <div class="col-auto">
+              <label for="titoloNota" class="form-label">Titolo Nota</label>
+              <input type="text" class="form-control" id="aggiungiNotaTitolo"
+                placeholder="Inserisci il titolo della nota" required>
+            </div>
+            <div class="col-12">
+              <label for="testoNota" class="form-label">Testo Nota</label>
+              <textarea class="form-control" id="aggiungiNotaTesto" rows="5" placeholder="Inserisci il testo della nota"
+                required></textarea>
+            </div>
+            <div class="col-auto align-self-end">
+              <input type="submit" class="bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold" id="btnAggiungiNota"
+                text="Invia">
+            </div>
+          </form>
+
+        </div>
+        <!-- FINE FORM AGGIUNTA NOTA -->
+
+
+        <div class="row mb-3 pannelloDiario">
+
+        </div>
+      </div>
     </div>
-    <div class="notes-grid">
-      <div class="note-card">
-        <div class="flex justify-between items-center mb-2">
-          <h2 class="text-xl font-bold">Nota 1</h2>
-          <span>31/05</span>
-        </div>
-        <p>Plppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo...</p>
-      </div>
-      <div class="note-card">
-        <div class="flex justify-between items-center mb-2">
-          <h2 class="text-xl font-bold">Nota 2</h2>
-          <span>31/05</span>
-        </div>
-        <p>Plppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo...</p>
-      </div>
-      <div class="note-card">
-        <div class="flex justify-between items-center mb-2">
-          <h2 class="text-xl font-bold">Nota 3</h2>
-          <span>31/05</span>
-        </div>
-        <p>Plppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo...</p>
-      </div>
-      <div class="note-card">
-        <div class="flex justify-between items-center mb-2">
-          <h2 class="text-xl font-bold">Nota 4</h2>
-          <span>31/05</span>
-        </div>
-        <p>Plppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo...</p>
-      </div>
-      <div class="note-card">
-        <div class="flex justify-between items-center mb-2">
-          <h2 class="text-xl font-bold">Nota 5</h2>
-          <span>31/05</span>
-        </div>
-        <p>Plppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo...</p>
-      </div>
-      <div class="note-card">
-        <div class="flex justify-between items-center mb-2">
-          <h2 class="text-xl font-bold">Nota 6</h2>
-          <span>31/05</span>
-        </div>
-        <p>Plppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo Pluto PaperinoPlppo...</p>
-      </div>
-    </div>
-  </section>
 </body>
-
+<script src="scripts/gestioneDiario.js"></script>
+<script src="scripts/consiglio.js"></script>
 </html>

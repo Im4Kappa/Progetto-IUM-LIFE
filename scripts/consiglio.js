@@ -1,19 +1,36 @@
 // CONTROLLI PER APERTURA CHIUSURA CONSIGLIO
 document.addEventListener('DOMContentLoaded', function () {
     var consigliamiBtn = document.getElementById('consigliamiBtn');
+    var consigliamiBtnNota = document.getElementById('consigliamiBtnNota');
     var consiglioAlert = document.getElementById('consiglioAlert');
 
-    // Funzione per mostrare il pannello aggiungi sonno
+    // Funzione per mostrare il consiglio sul SONNO
     function mostraConsiglio() {
         consiglioAlert.style.display = 'block';
         console.log("Consiglio mostrato");
         document.getElementById("textConsiglio").innerHTML = scegliConsiglioCasualeSonno();
     }
 
+    // Funzione per mostrare il consiglio sulla NOTA
+    function mostraConsiglioNota() {
+        consiglioAlert.style.display = 'block';
+        console.log("Consiglio mostrato");
+        document.getElementById("textConsiglio").innerHTML = scegliConsiglioCasualeNota();
+    }
+
     // Evento click sul bottone per aprire il pannello
-    consigliamiBtn.addEventListener('click', function () {
-        mostraConsiglio();
-    });
+    if (consigliamiBtn) {
+        consigliamiBtn.addEventListener('click', function () {
+            mostraConsiglio();
+        });
+    }
+
+    // Evento click sul bottone per aprire il pannello
+    if (consigliamiBtnNota) {
+        consigliamiBtnNota.addEventListener('click', function () {
+            mostraConsiglioNota();
+        });
+    }
 });
 
 /*CONSIGLI DA CHATGPT*/
@@ -35,4 +52,26 @@ const consigliSonno = [
 function scegliConsiglioCasualeSonno() {
     const indiceCasuale = Math.floor(Math.random() * consigliSonno.length);
     return consigliSonno[indiceCasuale];
+}
+
+/*CONSIGLI DA CHATGPT*/
+// Array contenente 10 consigli riguardanti il sonno
+const consigliNota = [
+    "Quali sono le piccole cose che ti fanno sorridere durante la giornata?",
+    "Parlami di un momento in cui hai superato una sfida personale.",
+    "Com'è andata la tua giornata oggi? Cosa hai imparato?",
+    "Quali sono le tue passioni e come le coltivi nella tua vita quotidiana?",
+    "Parlami di una persona che ti ispira e perché.",
+    "Quali sono le tue strategie per gestire lo stress nelle situazioni difficili?",
+    "Cosa ti rende orgoglioso di te stesso ultimamente?",
+    "Quali sono i tuoi obiettivi a breve e lungo termine e come stai lavorando per raggiungerli?",
+    "Parlami di una cosa che vorresti fare per te stesso oggi.",
+    "Cosa ti motiva a fare del tuo meglio ogni giorno?"
+];
+
+
+// Funzione per scegliere casualmente uno dei consigli dal vettore
+function scegliConsiglioCasualeNota() {
+    const indiceCasuale = Math.floor(Math.random() * consigliNota.length);
+    return consigliNota[indiceCasuale];
 }

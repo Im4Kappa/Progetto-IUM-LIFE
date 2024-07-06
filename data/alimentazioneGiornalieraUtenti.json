@@ -1,129 +1,274 @@
 [
-  {
-      "userId": 1,
-      "data": [
-          {
-              "date": "2024-06-30",
-              "pasti": {
-                  "Colazione": [
-                      {"pasto": "Cappuccino", "calories": 150}
-                  ],
-                  "Pranzo": [
-                      {"pasto": "Pizza margherita", "calories": 250}
-                  ],
-                  "Cena": [
-                      {"pasto": "Risotto ai funghi", "calories": 380}
-                  ],
-                  "Spuntini": [
-                      {"pasto": "Frutta mista (mela, banana, uva)", "calories": 150}
-                  ]
-              }
-          },
-          {
-              "date": "2024-07-01",
-              "pasti": {
-                  "Colazione": [
-                      {"pasto": "Caffè americano", "calories": 2},
-                      {"pasto": "Latte", "calories": 120},
-                      {"pasto": "Biscotti", "calories": 200}
-                  ],
-                  "Pranzo": [
-                      {"pasto": "Insalata mista", "calories": 180}
-                  ],
-                  "Cena": [
-                      {"pasto": "Sogliola alla griglia", "calories": 250}
-                  ],
-                  "Spuntini": [
-                      {"pasto": "Barretta di cereali", "calories": 120}
-                  ]
-              }
-          }
-      ]
-  },
-  {
-      "userId": 2,
-      "data": [
-          {
-              "date": "2024-07-06",
-              "pasti": {
-                  "Colazione": [
-                      {"pasto": "Latte intero", "calories": 100},
-                      {"pasto": "Biscotti", "calories": 200},
-                      {"pasto": "Biscotti", "calories": 200},
-                      {"pasto": "Biscotti", "calories": 200}
-                  ],
-                  "Pranzo": [
-                      {"pasto": "Insalata mista", "calories": 180}
-                  ],
-                  "Cena": [
-                      {"pasto": "Sogliola alla griglia", "calories": 250}
-                  ],
-                  "Spuntini": [
-                      {"pasto": "Barretta di cereali", "calories": 120}
-                  ]
-              }
-          },
-          {
-              "date": "2024-07-01",
-              "pasti": {
-                  "Colazione": [
-                      {"pasto": "Caffè espresso", "calories": 1},
-                      {"pasto": "Latte", "calories": 120},
-                      {"pasto": "Biscotti", "calories": 200}
-                  ],
-                  "Pranzo": [
-                      {"pasto": "Pizza margherita", "calories": 250}
-                  ],
-                  "Cena": [
-                      {"pasto": "Filetto di salmone al vapore", "calories": 300}
-                  ],
-                  "Spuntini": [
-                      {"pasto": "Smoothie alla frutta", "calories": 200}
-                  ]
-              }
-          }
-      ]
-  },
-  {
-      "userId": 3,
-      "data": [
-          {
-              "date": "2024-06-30",
-              "pasti": {
-                  "Colazione": [
-                      {"pasto": "Yogurt magro", "calories": 100},
-                      {"pasto": "Biscotti", "calories": 200}
-                  ],
-                  "Pranzo": [
-                      {"pasto": "Pollo al limone", "calories": 280}
-                  ],
-                  "Cena": [
-                      {"pasto": "Pasta al pesto", "calories": 350}
-                  ],
-                  "Spuntini": [
-                      {"pasto": "Smoothie alla frutta", "calories": 200}
-                  ]
-              }
-          },
-          {
-              "date": "2024-07-01",
-              "pasti": {
-                  "Colazione": [
-                      {"pasto": "Caffè americano", "calories": 2},
-                      {"pasto": "Latte", "calories": 120},
-                      {"pasto": "Biscotti", "calories": 200}
-                  ],
-                  "Pranzo": [
-                      {"pasto": "Hamburger con patatine fritte", "calories": 600}
-                  ],
-                  "Cena": [
-                      {"pasto": "Tagliata di manzo con rucola", "calories": 450}
-                  ],
-                  "Spuntini": [
-                      {"pasto": "Gelato", "calories": 180}
-                  ]
-              }
-          }
-      ]
-  }
+    {
+        "userId": 1,
+        "data": [
+            {
+                "date": "2024-06-30",
+                "pasti": {
+                    "Colazione": [
+                        {
+                            "pasto": "Cappuccino",
+                            "calories": 150
+                        }
+                    ],
+                    "Pranzo": [
+                        {
+                            "pasto": "Pizza margherita",
+                            "calories": 250
+                        }
+                    ],
+                    "Cena": [
+                        {
+                            "pasto": "Risotto ai funghi",
+                            "calories": 380
+                        }
+                    ],
+                    "Spuntini": [
+                        {
+                            "pasto": "Frutta mista (mela, banana, uva)",
+                            "calories": 150
+                        }
+                    ]
+                }
+            },
+            {
+                "date": "2024-07-01",
+                "pasti": {
+                    "Colazione": [
+                        {
+                            "pasto": "Caff\u00e8 americano",
+                            "calories": 2
+                        },
+                        {
+                            "pasto": "Latte",
+                            "calories": 120
+                        },
+                        {
+                            "pasto": "Biscotti",
+                            "calories": 200
+                        }
+                    ],
+                    "Pranzo": [
+                        {
+                            "pasto": "Insalata mista",
+                            "calories": 180
+                        }
+                    ],
+                    "Cena": [
+                        {
+                            "pasto": "Sogliola alla griglia",
+                            "calories": 250
+                        }
+                    ],
+                    "Spuntini": [
+                        {
+                            "pasto": "Barretta di cereali",
+                            "calories": 120
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "userId": 2,
+        "data": [
+            {
+                "date": "2024-07-06",
+                "pasti": {
+                    "Colazione": [
+                        {
+                            "pasto": "Latte intero",
+                            "calories": 100
+                        },
+                        {
+                            "pasto": "Biscotti",
+                            "calories": 200
+                        }
+                    ],
+                    "Pranzo": [
+                        {
+                            "pasto": "Insalata mista",
+                            "calories": 180
+                        }
+                    ],
+                    "Cena": [
+                        {
+                            "pasto": "Sogliola alla griglia",
+                            "calories": 250
+                        }
+                    ],
+                    "Spuntini": [
+                        {
+                            "pasto": "Barretta di cereali",
+                            "calories": 120
+                        }
+                    ]
+                }
+            },
+            {
+                "date": "2024-07-01",
+                "pasti": {
+                    "Colazione": [
+                        {
+                            "pasto": "Caff\u00e8 espresso",
+                            "calories": 1
+                        },
+                        {
+                            "pasto": "Latte",
+                            "calories": 120
+                        },
+                        {
+                            "pasto": "Biscotti",
+                            "calories": 200
+                        }
+                    ],
+                    "Pranzo": [
+                        {
+                            "pasto": "Pizza margherita",
+                            "calories": 250
+                        }
+                    ],
+                    "Cena": [
+                        {
+                            "pasto": "Filetto di salmone al vapore",
+                            "calories": 300
+                        }
+                    ],
+                    "Spuntini": [
+                        {
+                            "pasto": "Smoothie alla frutta",
+                            "calories": 200
+                        }
+                    ]
+                }
+            },
+            {
+                "date": "2024-07-06",
+                "pasti": {
+                    "colazione": [
+                        {
+                            "pasto": "Caff\u00e8 americano",
+                            "calories": 2
+                        }
+                    ]
+                }
+            },
+            {
+                "date": "2024-07-06",
+                "pasti": {
+                    "cena": [
+                        {
+                            "pasto": "Latte intero",
+                            "calories": 150
+                        }
+                    ]
+                }
+            },
+            {
+                "date": "2024-07-06",
+                "pasti": {
+                    "colazione": [
+                        {
+                            "pasto": "Pasta alla carbonara",
+                            "calories": 410
+                        }
+                    ]
+                }
+            },
+            {
+                "date": "2024-07-06",
+                "pasti": {
+                    "colazione": {
+                        "pasto": "Caff\u00e8 americano",
+                        "calories": 2
+                    }
+                }
+            },
+            {
+                "date": "2024-07-06",
+                "pasti": {
+                    "colazione": {
+                        "pasto": "Pasta alla carbonara",
+                        "calories": 410
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "userId": 3,
+        "data": [
+            {
+                "date": "2024-06-30",
+                "pasti": {
+                    "Colazione": [
+                        {
+                            "pasto": "Yogurt magro",
+                            "calories": 100
+                        },
+                        {
+                            "pasto": "Biscotti",
+                            "calories": 200
+                        }
+                    ],
+                    "Pranzo": [
+                        {
+                            "pasto": "Pollo al limone",
+                            "calories": 280
+                        }
+                    ],
+                    "Cena": [
+                        {
+                            "pasto": "Pasta al pesto",
+                            "calories": 350
+                        }
+                    ],
+                    "Spuntini": [
+                        {
+                            "pasto": "Smoothie alla frutta",
+                            "calories": 200
+                        }
+                    ]
+                }
+            },
+            {
+                "date": "2024-07-01",
+                "pasti": {
+                    "Colazione": [
+                        {
+                            "pasto": "Caff\u00e8 americano",
+                            "calories": 2
+                        },
+                        {
+                            "pasto": "Latte",
+                            "calories": 120
+                        },
+                        {
+                            "pasto": "Biscotti",
+                            "calories": 200
+                        }
+                    ],
+                    "Pranzo": [
+                        {
+                            "pasto": "Hamburger con patatine fritte",
+                            "calories": 600
+                        }
+                    ],
+                    "Cena": [
+                        {
+                            "pasto": "Tagliata di manzo con rucola",
+                            "calories": 450
+                        }
+                    ],
+                    "Spuntini": [
+                        {
+                            "pasto": "Gelato",
+                            "calories": 180
+                        }
+                    ]
+                }
+            }
+        ]
+    }
 ]

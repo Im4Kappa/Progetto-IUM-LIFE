@@ -336,7 +336,6 @@ function calcolaCalorieTotali(userId, date) {
 
 
 
-/* FORM ALIMENTAZIONE */
 document.addEventListener('DOMContentLoaded', function () {
     const selectTipoPasto = document.getElementById('selectTipoPasto');
     const selectAlimenti = document.getElementById('selectAlimenti');
@@ -357,12 +356,76 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(alimenti => {
             alimenti.forEach(alimento => {
                 const optionElement = document.createElement('option');
-                optionElement.value = alimento.name;
-                optionElement.textContent = `${alimento.name} (${alimento.calories} cal)`;
+                optionElement.value = alimento.name; // Nome dell'alimento come valore
+                optionElement.textContent = `${alimento.name} (${alimento.calories} cal)`; // Nome e calorie dell'alimento
+                optionElement.dataset.calories = alimento.calories; // Aggiungi le calorie come attributo data-calories
                 selectAlimenti.appendChild(optionElement);
             });
         })
         .catch(error => console.error('Errore nel caricamento degli alimenti:', error));
+
+    // Gestisci l'invio del form
+    btnAggiungiAlimentazione.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        const tipoPasto = selectTipoPasto.value;
+        const alimento = selectAlimenti.value;
+        const calorie = selectAlimenti.selectedOptions[0].dataset.calories; // Recupera le calorie dall'attributo data-calories
+
+        // Esegui qui le operazioni per inviare i dati al server o gestirli localmente
+        console.log(`Tipo pasto: ${tipoPasto}, Alimento: ${alimento}, Calorie: ${calorie}`);
+    });
+});
+
+
+/* INOLTRO DATI AL PHP*/
+document.addEventListener('DOMContentLoaded', function () {
+    const formAggiungiAlimentazione = document.getElementById('formAggiungiAlimentazione');
+
+    document.getElementById("btnAggiungiAlimentazione").addEventListener('click', async function (event) {
+        event.preventDefault();
+
+        const selectTipoPasto = document.getElementById('selectTipoPasto');
+        const selectAlimenti = document.getElementById('selectAlimenti');
+        const userId = idSessione; // Sostituisci con l'ID dell'utente attuale
+
+        const tipoPasto = selectTipoPasto.value;
+        const alimento = selectAlimenti.value;
+        const calorie = selectAlimenti.selectedOptions[0].dataset.calories; // Recupera le calorie dall'attributo data-calories
+        console.log(`AAAAATipo pasto: ${tipoPasto}, Alimento: ${alimento}, Calorie: ${calorie}`);
+        try {
+            // Invia i dati al server PHP tramite fetch
+            const response = await fetch('php/aggiungiPasto.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    userId: userId,
+                    tipoPasto: tipoPasto,
+                    pasto: {
+                        pasto: alimento,
+                        calories: parseInt(calorie) // Assicurati che le calorie siano un numero intero
+                    }
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Errore durante l\'aggiunta del pasto.');
+            }
+
+            // Resetta il form dopo l'invio dei dati
+            selectTipoPasto.value = '';
+            selectAlimenti.value = '';
+
+            console.log('Pasto aggiunto con successo.');
+
+            // Puoi aggiungere qui logiche aggiuntive dopo l'aggiunta del pasto, ad esempio aggiornare l'interfaccia utente
+
+        } catch (error) {
+            console.error('Errore:', error);
+        }
+    });
 });
 
 

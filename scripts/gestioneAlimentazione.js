@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     calcolaCalorieTotali(idSessione, dataOdierna);
     // Percorso del file JSON per l'alimentazione
     let pathToAlimentazioneJson = 'data/alimentazioneGiornalieraUtenti.json';
-    
+
     // Carica il file JSON per l'alimentazione e mostra il grafico
     fetchJSONFile(pathToAlimentazioneJson, function (dataAlimentazione) {
         // Trova i dati dell'utente specifico
@@ -26,6 +26,145 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error(`Utente con userId ${userId} non trovato.`);
         }
     });
+
+    // Funzione per ottenere i pasti per tipo, data e utente specificati
+    async function getPastiPerTipo(userId, date, tipoPasto) {
+        try {
+            // Effettua la fetch del file JSON
+            const response = await fetch('./data/alimentazioneGiornalieraUtenti.json');
+
+            // Verifica se la risposta è OK
+            if (!response.ok) {
+                throw new Error('Errore nel recupero del file JSON');
+            }
+
+            // Converte la risposta in JSON
+            const alimentazioneGiornalieraUtenti = await response.json();
+
+            // Trova l'utente con l'ID specificato
+            const user = alimentazioneGiornalieraUtenti.find(u => u.userId === userId);
+
+            if (!user) {
+                console.error(`Utente con ID ${userId} non trovato.`);
+                return null;
+            }
+
+            // Trova la data specificata per l'utente
+            const giorno = user.data.find(d => d.date === date);
+
+            if (!giorno) {
+                console.error(`Nessun pasto trovato per l'utente con ID ${userId} nella data ${date}.`);
+                return null;
+            }
+
+            // Trova il tipo di pasto specificato per quella data
+            const pastiTipo = giorno.pasti[tipoPasto];
+
+            if (!pastiTipo) {
+                console.error(`Nessun pasto trovato per il tipo ${tipoPasto} nella data ${date} per l'utente con ID ${userId}.`);
+                return null;
+            }
+
+            // Restituisce i pasti per il tipo specificato e la data specificata
+            return pastiTipo;
+
+        } catch (error) {
+            console.error('Errore:', error);
+            return null;
+        }
+    }
+
+    // Funzione per ottenere i pasti per tipo, data e utente specificati
+    async function getPastiPerTipo(userId, date, tipoPasto) {
+        try {
+            // Effettua la fetch del file JSON
+            const response = await fetch('./data/alimentazioneGiornalieraUtenti.json');
+
+            // Verifica se la risposta è OK
+            if (!response.ok) {
+                throw new Error('Errore nel recupero del file JSON');
+            }
+
+            // Converte la risposta in JSON
+            const alimentazioneGiornalieraUtenti = await response.json();
+
+            // Trova l'utente con l'ID specificato
+            const user = alimentazioneGiornalieraUtenti.find(u => u.userId === userId);
+
+            if (!user) {
+                console.error(`Utente con ID ${userId} non trovato.`);
+                return null;
+            }
+
+            // Trova la data specificata per l'utente
+            const giorno = user.data.find(d => d.date === date);
+
+            if (!giorno) {
+                console.error(`Nessun pasto trovato per l'utente con ID ${userId} nella data ${date}.`);
+                return null;
+            }
+
+            // Trova il tipo di pasto specificato per quella data
+            const pastiTipo = giorno.pasti[tipoPasto];
+
+            if (!pastiTipo) {
+                console.error(`Nessun pasto trovato per il tipo ${tipoPasto} nella data ${date} per l'utente con ID ${userId}.`);
+                return null;
+            }
+
+            // Restituisce i pasti per il tipo specificato e la data specificata
+            return pastiTipo;
+
+        } catch (error) {
+            console.error('Errore:', error);
+            return null;
+        }
+    }
+
+    // Funzione per riempire i div con i pasti
+    async function riempiDivPasti(userId) {
+        const oggi = new Date().toISOString().split('T')[0]; // Data odierna in formato YYYY-MM-DD
+
+        const tipiPasto = ["Colazione", "Pranzo", "Cena", "Spuntini"];
+        const divIds = {
+            "Colazione": "listaColazione",
+            "Pranzo": "listaPranzo",
+            "Cena": "listaCena",
+            "Spuntini": "listaSpuntini"
+        };
+
+        for (const tipoPasto of tipiPasto) {
+            const pasti = await getPastiPerTipo(userId, oggi, tipoPasto);
+            let totalCalories = 0;
+
+            const div = document.getElementById(divIds[tipoPasto]);
+            div.innerHTML = ''; // Pulisce il contenuto del div
+
+            if (pasti && pasti.length > 0) {
+                const ul = document.createElement('ul');
+                ul.classList.add('list-unstyled', 'text-left', 'w-100', 'list-group', 'list-group-flush', 'list-group-scrollable', 'ulAlim');
+                pasti.forEach(pasto => {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('list-group-item');
+                    listItem.innerHTML = `<b class="fs-5"><i class="fa-solid fa-utensils fs-5"></i>&nbsp;&nbsp; ${pasto.pasto}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-fire-flame-curved fs-5"></i>&nbsp;&nbsp;${pasto.calories} cal.</b>`;
+                    ul.appendChild(listItem);
+                    // Aggiorna il totale delle calorie
+                    totalCalories += pasto.calories;
+                });
+                // Aggiungi lo stile per lo scrolling all'elemento div
+                div.classList.add('overflow-auto');
+                div.appendChild(ul);
+                document.getElementById("totaleCalorie"+tipoPasto).innerHTML = totalCalories+" Kcal";
+            } else {
+                const listItem = document.createElement('div');
+                listItem.textContent = `Nessun pasto trovato per ${tipoPasto} nella data ${oggi}.`;
+                div.appendChild(listItem);
+            }
+        }
+    }
+
+    riempiDivPasti(idSessione);
+
 });
 
 function graficoAlimentazione(pasti, userId) {
@@ -95,9 +234,9 @@ function calcolaCalorieTotali(userId, date) {
                             totaleCalorie += pasto.calories;
                         });
                     }
-                    console.log(`Calorie totali assunte il ${data}: ${totaleCalorie}`);
+                    //console.log(`Calorie totali assunte il ${data}: ${totaleCalorie}`);
                     // Aggiorna l'interfaccia utente
-                    document.getElementById('totaleCalorie').innerHTML = "Oggi hai assunto "+ totaleCalorie + " Kcal";
+                    document.getElementById('totaleCalorie').innerHTML = "Oggi hai assunto " + totaleCalorie + " Kcal";
                 } else {
                     console.log(`Nessun dato trovato per la data ${data}`);
                 }

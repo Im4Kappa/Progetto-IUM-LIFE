@@ -91,3 +91,12 @@
     margin-top: 3px !important;
     margin-left: -3px !important;
 }
+
+.cardAlim {
+    height: 350px !important;
+}
+
+.ulAlim {
+    min-height: 100px !important;
+    max-height: 300px !important;
+}

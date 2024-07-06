@@ -37,10 +37,12 @@
                 <!-- INIZIO FORM AGGIUNTA CALORIE -->
                 <div class="pannelloAggiungiDato p-4 background-light mt-2 mb-3" id="pannelloAggiungiAlimentazione">
 
-                    <button class="bottoneChiudiDesktop position-absolute fw-bold" id="bottoneChiudiDesktopAlimentazione"><i
+                    <button class="bottoneChiudiDesktop position-absolute fw-bold"
+                        id="bottoneChiudiDesktopAlimentazione"><i
                             class="bi bi-x fw-bold"></i></button><!-- BOTTONE PER DESKTOP -->
                     <h4 class="titoloPannelloAggiungiDato fw-bold d-flex"> <button class="bottoneChiudiMobile fw-bold"
-                            id="bottoneChiudiMobileAlimentazione"><i class="bi bi-chevron-left fw-bold"></i></button> Aggiungi
+                            id="bottoneChiudiMobileAlimentazione"><i class="bi bi-chevron-left fw-bold"></i></button>
+                        Aggiungi
                         calorie
                     </h4>
 
@@ -51,14 +53,14 @@
                                 <!-- Le opzioni verranno inserite qui dinamicamente dallo script JavaScript -->
                             </select>
                         </div>
-                    
+
                         <div class="col-12 mb-3">
                             <label for="selectAlimenti" class="form-label">Alimento</label>
                             <select id="selectAlimenti" class="form-select form-control">
                                 <!-- Le opzioni verranno inserite qui dinamicamente dallo script JavaScript -->
                             </select>
                         </div>
-                        
+
                         <div class="col-auto align-self-end">
                             <input type="submit" class="bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold"
                                 id="btnAggiungiAlimentazione" value="Invia">
@@ -67,41 +69,110 @@
 
                 </div>
                 <div id="pannelloDashboard mb-4">
-                    <!-- Grafico Alimentazione -->
-                        <div class="row mb-3 mt-3">
-                            <!-- Crea un canvas per il grafico -->
-                            <div class="col-12">
-                                <div class="card">
-                                    <div class="card-body text-left">
-                                        <h5 class="card-title text-muted">Andamento Alimentazione</h5>
-                                        <div class="d-inline-block d-block d-flex">
-                                            <i class="fa-solid fa-utensils fs-3"></i>&nbsp;&nbsp;
-                                            <h3 class="mb-1 fw-bold" id="totaleCalorie"></h3>
-                                        </div>
-                                        <hr>
-                                        <div class="d-flex justify-content-center align-items-center">
-                                            <canvas id="graficoAlimentazione" height="80"></canvas>
-                                        </div>
+                    <!-- RIGA 1 -->
+                    <div class="row">
+                        <div class="col-12 col-md-6 mt-3">
+                            <div class="card cardAlim">
+                                <div class="card-body text-left">
+                                    <h5 class="card-title text-muted">Colazione</h5>
+                                    <div class="d-inline-block d-block d-flex">
+                                        <i class="fa-solid fa-fire-flame-curved fs-3"></i>&nbsp;&nbsp;
+                                        <h3 class="mb-1 fw-bold" id="totaleCalorieColazione"></h3>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex align-items-left" id="listaColazione">
+
                                     </div>
                                 </div>
                             </div>
-                        </div>                
-
-                    <!-- Resoconto Settimanale con scrollbar -->
-                    <div class="row mt-4">
-                        <div class="sottotitoloCategoria d-flex justify-content-left">
-                            <h4 class="fw-bold me-4">Ultima settimana</h4>
                         </div>
-                        <div class="col-12">
-                            <div class="card-container d-flex mt-3" id="resocontoSettimanale">
-                                <!-- Qui vengono inserite dinamicamente le card quadrate -->
+                        <div class="col-12 col-md-6 mt-3">
+                            <div class="card cardAlim">
+                                <div class="card-body text-left">
+                                    <h5 class="card-title text-muted">Pranzo</h5>
+                                    <div class="d-inline-block d-block d-flex">
+                                        <i class="fa-solid fa-fire-flame-curved fs-3"></i>&nbsp;&nbsp;
+                                        <h3 class="mb-1 fw-bold" id="totaleCaloriePranzo"></h3>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex align-items-left" id="listaPranzo">
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- RIGA 2 -->
+                    <div class="row">
+                        <div class="col-12 col-md-6 mt-3">
+                            <div class="card cardAlim">
+                                <div class="card-body text-left">
+                                    <h5 class="card-title text-muted">Cena</h5>
+                                    <div class="d-inline-block d-block d-flex">
+                                        <i class="fa-solid fa-fire-flame-curved fs-3"></i>&nbsp;&nbsp;
+                                        <h3 class="mb-1 fw-bold" id="totaleCalorieCena"></h3>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex align-items-left" id="listaCena">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 mt-3">
+                            <div class="card cardAlim">
+                                <div class="card-body text-left">
+                                    <h5 class="card-title text-muted">Spuntini</h5>
+                                    <div class="d-inline-block d-block d-flex">
+                                        <i class="fa-solid fa-fire-flame-curved fs-3"></i>&nbsp;&nbsp;
+                                        <h3 class="mb-1 fw-bold" id="totaleCalorieSpuntini"></h3>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex align-items-left" id="listaSpuntini">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RIGA 3 -->
+                    <div class="row">
+                        <!-- Crea un canvas per il grafico -->
+                        <!-- Grafico Alimentazione -->
+                        <div class="col-12 col-md-6 mt-3">
+                            <div class="card">
+                                <div class="card-body text-left">
+                                    <h5 class="card-title text-muted">Andamento Alimentazione</h5>
+                                    <div class="d-inline-block d-block d-flex">
+                                        <i class="fa-solid fa-fire-flame-curved fs-3"></i>&nbsp;&nbsp;
+                                        <h3 class="mb-1 fw-bold" id="totaleCalorie"></h3>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <canvas id="graficoAlimentazione" height="80" class="graficoPiccolo" style="max-height: 250px !important;"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>      
+                        <div class="col-12 col-md-6 mt-3">
+                            <div class="card">
+                                <div class="card-body text-left">
+                                    <h5 class="card-title text-muted">Resoconto Pasti</h5>
+                                    <div class="d-inline-block d-block d-flex">
+                                        <i class="fa-solid fa-fire-flame-curved fs-3"></i>&nbsp;&nbsp;                                        
+                                        <h3 class="mb-1 fw-bold" id="totaleCalorie"></h3>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                                            
+                    </div>                     
+                    <!-- FINE PANNELLO ALIMENTAZIONE -->
                 </div>
-                <!-- FINE PANNELLO ALIMENTAZIONE -->
-            </div>
-            <!--FINE CONTAINER PRINCIPALE-->
+                <!--FINE CONTAINER PRINCIPALE-->
 </body>
 <script src="scripts/gestioneUtente.js"></script>
 <script src="scripts/gestioneAlimentazione.js"></script>

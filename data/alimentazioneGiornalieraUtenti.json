@@ -44,10 +44,12 @@
       "userId": 2,
       "data": [
           {
-              "date": "2024-07-05",
+              "date": "2024-07-06",
               "pasti": {
                   "Colazione": [
                       {"pasto": "Latte intero", "calories": 100},
+                      {"pasto": "Biscotti", "calories": 200},
+                      {"pasto": "Biscotti", "calories": 200},
                       {"pasto": "Biscotti", "calories": 200}
                   ],
                   "Pranzo": [

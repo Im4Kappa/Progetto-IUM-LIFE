@@ -30,7 +30,7 @@
             <!-- INIZIO PANNELLO ALIMENTAZIONE -->
             <div id="pannelloAlimentazione mb-4">
                 <div class="sottotitoloCategoria d-flex justify-content-left">
-                    <h4 class="fw-bold me-4">Calorie assunte</h4>
+                    <h4 class="fw-bold me-4">Pasti</h4>
                     <button class="bottoneApriPannelloAggiungi bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold"
                         id="bottoneApriPannelloAggiungiAlimentazione"><i class="bi bi-plus-lg"></i> Aggiungi</button>
                 </div>
@@ -43,7 +43,7 @@
                     <h4 class="titoloPannelloAggiungiDato fw-bold d-flex"> <button class="bottoneChiudiMobile fw-bold"
                             id="bottoneChiudiMobileAlimentazione"><i class="bi bi-chevron-left fw-bold"></i></button>
                         Aggiungi
-                        calorie
+                        pasto
                     </h4>
 
                     <form class="row g-3" id="formAggiungiAlimentazione">
@@ -140,7 +140,7 @@
                         <!-- Crea un canvas per il grafico -->
                         <!-- Grafico Alimentazione -->
                         <div class="col-12 col-md-6 mt-3">
-                            <div class="card">
+                            <div class="card cardAlimDue">
                                 <div class="card-body text-left">
                                     <h5 class="card-title text-muted">Andamento Alimentazione</h5>
                                     <div class="d-inline-block d-block d-flex">
@@ -155,15 +155,15 @@
                             </div>
                         </div>      
                         <div class="col-12 col-md-6 mt-3">
-                            <div class="card">
+                            <div class="card cardAlimDue">
                                 <div class="card-body text-left">
                                     <h5 class="card-title text-muted">Resoconto Pasti</h5>
-                                    <div class="d-inline-block d-block d-flex">
-                                        <i class="fa-solid fa-fire-flame-curved fs-3"></i>&nbsp;&nbsp;                                        
-                                        <h3 class="mb-1 fw-bold" id="totaleCalorie"></h3>
+                                    <div class="d-inline-block d-block d-flex">      
+                                        <i class="fs-2"></i>&nbsp;&nbsp;                                 
+                                        <h3 class="mb-1 fw-bold" id="totaleCalorie">Totale pasti recenti</h3>
                                     </div>
                                     <hr>
-                                    <div class="d-flex justify-content-center align-items-center">
+                                    <div class="d-flex ulAlimDue" id="resocontoPasti">
                                         
                                     </div>
                                 </div>

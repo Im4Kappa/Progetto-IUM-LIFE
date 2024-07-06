@@ -154,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Aggiungi lo stile per lo scrolling all'elemento div
                 div.classList.add('overflow-auto');
                 div.appendChild(ul);
-                document.getElementById("totaleCalorie"+tipoPasto).innerHTML = totalCalories+" Kcal";
+                document.getElementById("totaleCalorie" + tipoPasto).innerHTML = totalCalories + " Kcal";
             } else {
                 const listItem = document.createElement('div');
                 listItem.textContent = `Nessun pasto trovato per ${tipoPasto} nella data ${oggi}.`;
@@ -164,6 +164,93 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     riempiDivPasti(idSessione);
+
+    // Funzione per ottenere tutti i pasti per un utente raggruppati per data
+    async function resocontoPasti(userId) {
+        try {
+            // Effettua la fetch del file JSON
+            const response = await fetch('./data/alimentazioneGiornalieraUtenti.json');
+
+            // Verifica se la risposta è OK
+            if (!response.ok) {
+                throw new Error('Errore nel recupero del file JSON');
+            }
+
+            // Converte la risposta in JSON
+            const alimentazioneGiornalieraUtenti = await response.json();
+
+            // Trova l'utente con l'ID specificato
+            const user = alimentazioneGiornalieraUtenti.find(u => u.userId === userId);
+
+            if (!user) {
+                console.error(`Utente con ID ${userId} non trovato.`);
+                return null;
+            }
+
+            // Creazione di un ul per il resoconto dei pasti
+            const resocontoUl = document.createElement('ul');
+            resocontoUl.classList.add('list-unstyled', 'text-left', 'w-100', 'list-group', 'list-group-flush', 'list-group-scrollable', 'ulAlimDue');
+
+            // Itera su tutte le date dei pasti dell'utente
+            user.data.forEach(giorno => {
+                const date = giorno.date;
+
+                // Calcola il totale delle calorie per quel giorno
+                let totalCalories = 0;
+                giorno.pasti && Object.values(giorno.pasti).forEach(pastiTipo => {
+                    pastiTipo.forEach(pasto => totalCalories += pasto.calories)
+                })
+
+                // Creazione di un elemento li per la data e il totale delle calorie
+                const listItem = document.createElement('li');
+                listItem.classList.add('list-group-item', 'mb-3');
+
+                listItem.innerHTML = `
+                <div><strong>Il giorno ${date} hai assunto ${totalCalories} Kcal</strong></div>
+                <ul class="list-unstyled text-left">
+            `;
+
+                // Itera sui vari tipi di pasto di quel giorno
+                Object.keys(giorno.pasti).forEach(tipoPasto => {
+                    const pastiTipo = giorno.pasti[tipoPasto];
+
+                    // Crea un blocco per il tipo di pasto se ci sono pasti di quel tipo
+                    if (pastiTipo.length > 0) {
+                        const tipoPastoItem = document.createElement('li');
+                        tipoPastoItem.innerHTML = `<b>${tipoPasto}</b>:`;
+
+                        const pastiList = document.createElement('ul');
+                        pastiList.classList.add('list-unstyled', 'mb-0');
+                        pastiTipo.forEach(pasto => {
+                            const pastoItem = document.createElement('li');
+                            pastoItem.innerHTML = `${pasto.pasto} - ${pasto.calories} calorie`;
+                            pastiList.appendChild(pastoItem);
+                        });
+
+                        tipoPastoItem.appendChild(pastiList);
+                        listItem.querySelector('ul').appendChild(tipoPastoItem);
+                    }
+                });
+
+                // Chiudi l'ul principale per quel giorno
+                listItem.innerHTML += `</ul>`;
+
+                // Aggiungi il listItem al resocontoUl
+                resocontoUl.appendChild(listItem);
+            });
+
+            // Seleziona il div con id "resocontoPasti" e aggiungi il resocontoUl al suo interno
+            const resocontoDiv = document.getElementById('resocontoPasti');
+            resocontoDiv.innerHTML = '';
+            resocontoDiv.appendChild(resocontoUl);
+
+        } catch (error) {
+            console.error('Errore:', error);
+        }
+    }
+
+
+    resocontoPasti(idSessione);
 
 });
 

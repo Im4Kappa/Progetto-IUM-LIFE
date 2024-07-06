@@ -184,73 +184,63 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (!user) {
                 console.error(`Utente con ID ${userId} non trovato.`);
-                return null;
+                return;
             }
 
-            // Creazione di un ul per il resoconto dei pasti
-            const resocontoUl = document.createElement('ul');
-            resocontoUl.classList.add('list-unstyled', 'text-left', 'w-100', 'list-group', 'list-group-flush', 'list-group-scrollable', 'ulAlimDue');
+            const resocontoDiv = document.getElementById('resocontoPasti');
+            resocontoDiv.innerHTML = ''; // Pulisce il contenuto del div
 
-            // Itera su tutte le date dei pasti dell'utente
+            const ul = document.createElement('ul');
+            ul.classList.add('list-unstyled', 'text-left', 'w-100', 'list-group', 'list-group-flush', 'list-group-scrollable', 'ulAlim');
+
             user.data.forEach(giorno => {
-                const date = giorno.date;
-
-                // Calcola il totale delle calorie per quel giorno
                 let totalCalories = 0;
-                giorno.pasti && Object.values(giorno.pasti).forEach(pastiTipo => {
-                    pastiTipo.forEach(pasto => totalCalories += pasto.calories)
-                })
+                let pastiDetails = '';
 
-                // Creazione di un elemento li per la data e il totale delle calorie
-                const listItem = document.createElement('li');
-                listItem.classList.add('list-group-item', 'mb-3');
+                if (giorno.pasti) {
+                    const groupedPasti = {};
 
-                listItem.innerHTML = `
-                <div><strong>Il giorno ${date} hai assunto ${totalCalories} Kcal</strong></div>
-                <ul class="list-unstyled text-left">
-            `;
+                    // Raggruppa i pasti per tipo di pasto
+                    Object.entries(giorno.pasti).forEach(([tipoPasto, pastiTipo]) => {
+                        if (Array.isArray(pastiTipo)) {
+                            groupedPasti[tipoPasto] = groupedPasti[tipoPasto] || [];
+                            pastiTipo.forEach(pasto => {
+                                groupedPasti[tipoPasto].push(pasto);
+                                totalCalories += pasto.calories;
+                            });
+                        } else {
+                            console.warn(`Expected an array for ${tipoPasto}, but received:`, pastiTipo);
+                        }
+                    });
 
-                // Itera sui vari tipi di pasto di quel giorno
-                Object.keys(giorno.pasti).forEach(tipoPasto => {
-                    const pastiTipo = giorno.pasti[tipoPasto];
-
-                    // Crea un blocco per il tipo di pasto se ci sono pasti di quel tipo
-                    if (pastiTipo.length > 0) {
-                        const tipoPastoItem = document.createElement('li');
-                        tipoPastoItem.innerHTML = `<b>${tipoPasto}</b>:`;
-
-                        const pastiList = document.createElement('ul');
-                        pastiList.classList.add('list-unstyled', 'mb-0');
-                        pastiTipo.forEach(pasto => {
-                            const pastoItem = document.createElement('li');
-                            pastoItem.innerHTML = `${pasto.pasto} - ${pasto.calories} calorie`;
-                            pastiList.appendChild(pastoItem);
+                    // Costruisci i dettagli dei pasti raggruppati per tipo di pasto
+                    Object.entries(groupedPasti).forEach(([tipoPasto, pasti]) => {
+                        pastiDetails += `<li class="list-group-item"><strong>${tipoPasto}:</strong></li>`;
+                        pasti.forEach(pasto => {
+                            pastiDetails += `<li class="list-group-item">${pasto.pasto} - ${pasto.calories} cal</li>`;
                         });
+                    });
+                }
 
-                        tipoPastoItem.appendChild(pastiList);
-                        listItem.querySelector('ul').appendChild(tipoPastoItem);
-                    }
-                });
+                const listItem = document.createElement('li');
+                listItem.classList.add('list-group-item');
+                listItem.innerHTML = `
+                    <div><strong>il ${giorno.date} hai assunto ${totalCalories} Kcal</strong></div>
+                    <ul class="list-group list-group-flush w-100">${pastiDetails}</ul>
+                `;
 
-                // Chiudi l'ul principale per quel giorno
-                listItem.innerHTML += `</ul>`;
-
-                // Aggiungi il listItem al resocontoUl
-                resocontoUl.appendChild(listItem);
+                ul.appendChild(listItem);
             });
 
-            // Seleziona il div con id "resocontoPasti" e aggiungi il resocontoUl al suo interno
-            const resocontoDiv = document.getElementById('resocontoPasti');
-            resocontoDiv.innerHTML = '';
-            resocontoDiv.appendChild(resocontoUl);
-
+            resocontoDiv.appendChild(ul);
         } catch (error) {
             console.error('Errore:', error);
         }
     }
 
-
+    // Esempio di chiamata alla funzione
     resocontoPasti(idSessione);
+
 
 });
 

@@ -74,6 +74,39 @@
         "userId": 2,
         "data": [
             {
+                "date": "2024-07-08",
+                "pasti": {
+                    "Colazione": [
+                        {
+                            "pasto": "Caff\u00e8 americano",
+                            "calories": 2
+                        },
+                        {
+                            "pasto": "Caff\u00e8 americano",
+                            "calories": 2
+                        }
+                    ],
+                    "Pranzo": [
+                        {
+                            "pasto": "Caff\u00e8 americano",
+                            "calories": 2
+                        }
+                    ],
+                    "Cena": [
+                        {
+                            "pasto": "Caff\u00e8 americano",
+                            "calories": 2
+                        }
+                    ],
+                    "Spuntini": [
+                        {
+                            "pasto": "Caff\u00e8 americano",
+                            "calories": 2
+                        }
+                    ]
+                }
+            },
+            {
                 "date": "2024-07-07",
                 "pasti": {
                     "Colazione": [

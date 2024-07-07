@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const btnAggiungiAlimentazione = document.getElementById('btnAggiungiAlimentazione');
 
     // Popola il select per il tipo di pasto
-    const opzioniPasto = ['Colazione', 'Pranzo', 'Cena', 'Spuntino'];
+    const opzioniPasto = ['Colazione', 'Pranzo', 'Cena', 'Spuntini'];
     opzioniPasto.forEach(opzione => {
         const optionElement = document.createElement('option');
         optionElement.value = opzione.toLowerCase();

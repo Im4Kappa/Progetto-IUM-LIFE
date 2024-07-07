@@ -74,6 +74,20 @@
         "userId": 2,
         "data": [
             {
+                "date": "2024-07-07",
+                "pasti": {
+                    "Colazione": [
+                        {
+                            "pasto": "Caff\u00e8 americano",
+                            "calories": 2
+                        }
+                    ],
+                    "Pranzo": [],
+                    "Cena": [],
+                    "Spuntini": []
+                }
+            },
+            {
                 "date": "2024-07-06",
                 "pasti": {
                     "Colazione": [
@@ -141,57 +155,6 @@
                             "calories": 200
                         }
                     ]
-                }
-            },
-            {
-                "date": "2024-07-06",
-                "pasti": {
-                    "colazione": [
-                        {
-                            "pasto": "Caff\u00e8 americano",
-                            "calories": 2
-                        }
-                    ]
-                }
-            },
-            {
-                "date": "2024-07-06",
-                "pasti": {
-                    "cena": [
-                        {
-                            "pasto": "Latte intero",
-                            "calories": 150
-                        }
-                    ]
-                }
-            },
-            {
-                "date": "2024-07-06",
-                "pasti": {
-                    "colazione": [
-                        {
-                            "pasto": "Pasta alla carbonara",
-                            "calories": 410
-                        }
-                    ]
-                }
-            },
-            {
-                "date": "2024-07-06",
-                "pasti": {
-                    "colazione": {
-                        "pasto": "Caff\u00e8 americano",
-                        "calories": 2
-                    }
-                }
-            },
-            {
-                "date": "2024-07-06",
-                "pasti": {
-                    "colazione": {
-                        "pasto": "Pasta alla carbonara",
-                        "calories": 410
-                    }
                 }
             }
         ]

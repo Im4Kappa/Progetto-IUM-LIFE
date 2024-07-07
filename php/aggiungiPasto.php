@@ -1,69 +1,77 @@
 <?php
-// Percorso del file JSON contenente i dati di alimentazione giornaliera degli utenti
-$file = '../data/alimentazioneGiornalieraUtenti.json';
 
-// Verifica che sia una richiesta POST
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    echo json_encode(array('message' => 'Metodo non consentito'));
-    exit;
-}
+// Percorso del file JSON
+$file = './data/alimentazioneGiornalieraUtenti.json';
 
-// Leggi e decodifica i dati JSON inviati
-$data = json_decode(file_get_contents('php://input'), true);
-
-// Verifica se sono stati ricevuti dati validi
-if (!$data || !isset($data['userId']) || !isset($data['tipoPasto']) || !isset($data['pasto'])) {
-    http_response_code(400);
-    echo json_encode(array('message' => 'Dati non validi o incompleti'));
-    exit;
-}
-
-$userId = $data['userId'];
-$tipoPasto = $data['tipoPasto'];
-$pasto = $data['pasto'];
-
-// Carica il contenuto attuale del file JSON
+// Leggi il contenuto del file JSON
 $currentData = json_decode(file_get_contents($file), true);
 
-if (!$currentData) {
-    http_response_code(500);
-    echo json_encode(array('message' => 'Errore nel caricamento dei dati'));
-    exit;
-}
+// Dati ricevuti dal form
+$userId = $_POST['userId'];
+$currentDate = $_POST['date'];
+$tipoPasto = ucfirst($_POST['tipoPasto']); // Prima lettera maiuscola
+$pasto = $_POST['pasto'];
+$calories = $_POST['calories'];
 
-// Trova l'utente corrispondente
-$index = -1;
-foreach ($currentData as $key => $item) {
-    if ($item['userId'] == $userId) {
-        $index = $key;
+// Trova l'utente nell'array dei dati
+$userIndex = -1;
+foreach ($currentData as $index => $user) {
+    if ($user['userId'] == $userId) {
+        $userIndex = $index;
         break;
     }
 }
 
-if ($index == -1) {
-    http_response_code(404);
-    echo json_encode(array('message' => 'Utente non trovato'));
-    exit;
+if ($userIndex === -1) {
+    // Utente non trovato, gestire come preferisci (es. errore)
+    die("Utente non trovato.");
 }
 
-// Aggiungi il nuovo pasto al tipo di pasto corretto
-$currentData[$index]['data'][] = array(
-    'date' => date('Y-m-d'), // Aggiungi la data corrente
-    'pasti' => array(
-        $tipoPasto => array(
-            'pasto' => $pasto['pasto'],
-            'calories' => $pasto['calories']
-        )
-    )
-);
+// Cerca se esiste già una data con il valore specificato
+$dateIndex = false;
+foreach ($currentData[$userIndex]['data'] as $index => $data) {
+    if ($data['date'] === $currentDate) {
+        $dateIndex = $index;
+        break;
+    }
+}
 
-// Salva i dati aggiornati nel file JSON
-if (file_put_contents($file, json_encode($currentData, JSON_PRETTY_PRINT))) {
-    http_response_code(200);
-    echo json_encode(array('message' => 'Pasto aggiunto con successo'));
+// Verifica se la data esiste già
+if ($dateIndex !== false) {
+    // La data esiste già, verifica e aggiungi il pasto al tipo di pasto corretto
+    if (!isset($currentData[$userIndex]['data'][$dateIndex]['pasti'][$tipoPasto])) {
+        $currentData[$userIndex]['data'][$dateIndex]['pasti'][$tipoPasto] = array();
+    }
+    $currentData[$userIndex]['data'][$dateIndex]['pasti'][$tipoPasto][] = array(
+        'pasto' => $pasto,
+        'calories' => $calories
+    );
 } else {
-    http_response_code(500);
-    echo json_encode(array('message' => 'Errore durante il salvataggio dei dati'));
+    // La data non esiste, crea una nuova entry per la data corrente
+    $newDay = array(
+        'date' => $currentDate,
+        'pasti' => array(
+            'Colazione' => array(),
+            'Pranzo' => array(),
+            'Cena' => array(),
+            'Spuntini' => array()
+        )
+    );
+
+    // Aggiungi il pasto al tipo di pasto corretto
+    $newDay['pasti'][$tipoPasto][] = array(
+        'pasto' => $pasto,
+        'calories' => $calories
+    );
+
+    // Aggiungi la nuova data all'array dei dati dell'utente corretto
+    $currentData[$userIndex]['data'][] = $newDay;
 }
+
+// Scrivi i dati aggiornati nel file JSON
+file_put_contents($file, json_encode($currentData, JSON_PRETTY_PRINT));
+
+// Messaggio di conferma
+echo "Pasto aggiunto con successo per l'utente $userId.";
+
 ?>

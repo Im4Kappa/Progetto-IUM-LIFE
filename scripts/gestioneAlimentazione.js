@@ -370,8 +370,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* INOLTRO DATI AL PHP*/
 document.addEventListener('DOMContentLoaded', function () {
-    const formAggiungiAlimentazione = document.getElementById('formAggiungiAlimentazione');
-
     document.getElementById("btnAggiungiAlimentazione").addEventListener('click', async function (event) {
         event.preventDefault();
 
@@ -382,7 +380,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const tipoPasto = selectTipoPasto.value;
         const alimento = selectAlimenti.value;
         const calorie = selectAlimenti.selectedOptions[0].dataset.calories; // Recupera le calorie dall'attributo data-calories
-        console.log(`AAAAATipo pasto: ${tipoPasto}, Alimento: ${alimento}, Calorie: ${calorie}`);
+        //console.log(`AAAAATipo pasto: ${tipoPasto}, Alimento: ${alimento}, Calorie: ${calorie}`);
         try {
             // Invia i dati al server PHP tramite fetch
             const response = await fetch('php/aggiungiPasto.php', {
@@ -403,10 +401,6 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!response.ok) {
                 throw new Error('Errore durante l\'aggiunta del pasto.');
             }
-
-            // Resetta il form dopo l'invio dei dati
-            selectTipoPasto.value = '';
-            selectAlimenti.value = '';
 
             console.log('Pasto aggiunto con successo.');
 

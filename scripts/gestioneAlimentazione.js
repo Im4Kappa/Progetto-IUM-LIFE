@@ -1,6 +1,6 @@
+let oggi = new Date();
+let dataOdierna = oggi.toISOString().slice(0, 10);
 document.addEventListener('DOMContentLoaded', function () {
-    const oggi = new Date();
-    const dataOdierna = oggi.toISOString().slice(0, 10);
     const userId = idSessione; // Assicurati che idSessione sia definito altrove nel tuo codice
 
     calcolaCalorieTotali(idSessione, dataOdierna);
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Funzione per riempire i div con i pasti
     async function riempiDivPasti(userId) {
-        const oggi = new Date().toISOString().split('T')[0]; // Data odierna in formato YYYY-MM-DD
+        let oggi = new Date().toISOString().split('T')[0]; // Data odierna in formato YYYY-MM-DD
 
         const tipiPasto = ["Colazione", "Pranzo", "Cena", "Spuntini"];
         const divIds = {
@@ -403,12 +403,14 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             console.log('Pasto aggiunto con successo.');
+            aggiornaCacheEDati("alimentazioneGiornalieraUtenti.json");
 
             // Puoi aggiungere qui logiche aggiuntive dopo l'aggiunta del pasto, ad esempio aggiornare l'interfaccia utente
 
         } catch (error) {
             console.error('Errore:', error);
         }
+        aggiornaCacheEDati("alimentazioneGiornalieraUtenti.json");
     });
 });
 

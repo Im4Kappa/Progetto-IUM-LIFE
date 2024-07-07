@@ -12,6 +12,7 @@ $eta = $postData['eta'];
 $sesso = $postData['sesso'];
 $altezza = $postData['altezza'];
 $password = $postData['password'];
+$obbiettivoPassi = $postData['obbiettivoPassi'];
 
 // Decodifica il contenuto del file JSON in un array associativo
 $data = json_decode(file_get_contents($file), true);
@@ -27,6 +28,7 @@ if ($userIndex !== false) {
     $data[$userIndex]['sesso'] = $sesso;
     $data[$userIndex]['altezza'] = $altezza;
     $data[$userIndex]['password'] = $password;
+    $data[$userIndex]['obbiettivoPassi'] = $obbiettivoPassi;
 
     // Codifica nuovamente i dati in formato JSON
     $jsonData = json_encode($data, JSON_PRETTY_PRINT);

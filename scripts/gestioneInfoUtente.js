@@ -7,6 +7,7 @@ function modificaInfoUtenteFormPHP() {
         const sesso = document.getElementById('sessoInput').value;
         const altezza = document.getElementById('altezzaInput').value;
         const password = document.getElementById('pwdInput').value;
+        const obbiettivoPassi = document.getElementById('obbiettivoPassiInput').value;
 
         const updatedUser = {
             "userId": userId,
@@ -15,7 +16,8 @@ function modificaInfoUtenteFormPHP() {
             "eta": parseInt(eta),
             "sesso": sesso,
             "altezza": parseInt(altezza),
-            "password": password
+            "password": password,
+            "obbiettivoPassi": parseInt(obbiettivoPassi)
         };
 
         fetch('php/modificaInfoUtente.php', {

@@ -3,9 +3,17 @@
         "userId": 1,
         "data": [
             {
-                "date": "2024-06-30",
+                "date": "2024-07-08",
                 "pasti": {
                     "Colazione": [
+                        {
+                            "pasto": "Cappuccino",
+                            "calories": 150
+                        },
+                        {
+                            "pasto": "Cappuccino",
+                            "calories": 150
+                        },
                         {
                             "pasto": "Cappuccino",
                             "calories": 150
@@ -13,22 +21,12 @@
                     ],
                     "Pranzo": [
                         {
-                            "pasto": "Pizza margherita",
-                            "calories": 250
-                        }
-                    ],
-                    "Cena": [
-                        {
-                            "pasto": "Risotto ai funghi",
-                            "calories": 380
-                        }
-                    ],
-                    "Spuntini": [
-                        {
-                            "pasto": "Frutta mista (mela, banana, uva)",
+                            "pasto": "Biscotti integrali",
                             "calories": 150
                         }
-                    ]
+                    ],
+                    "Cena": [],
+                    "Spuntini": []
                 }
             },
             {
@@ -64,6 +62,35 @@
                         {
                             "pasto": "Barretta di cereali",
                             "calories": 120
+                        }
+                    ]
+                }
+            },
+            {
+                "date": "2024-06-30",
+                "pasti": {
+                    "Colazione": [
+                        {
+                            "pasto": "Cappuccino",
+                            "calories": 150
+                        }
+                    ],
+                    "Pranzo": [
+                        {
+                            "pasto": "Pizza margherita",
+                            "calories": 250
+                        }
+                    ],
+                    "Cena": [
+                        {
+                            "pasto": "Risotto ai funghi",
+                            "calories": 380
+                        }
+                    ],
+                    "Spuntini": [
+                        {
+                            "pasto": "Frutta mista (mela, banana, uva)",
+                            "calories": 150
                         }
                     ]
                 }

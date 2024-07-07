@@ -1,41 +1,63 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap JS Bundle (with Popper) -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>L.I.F.E | Area Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Style nostri -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karantina:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inder&display=swap">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/loginRegistrazione.css">
     <link rel="stylesheet" href="styles/general.css">
-    <link rel="stylesheet" href="styles/navbar.css">
-    <link rel="stylesheet" href="styles/dashboard.css">
-
-    <!-- import scripts -->
-    <script src="scripts/importHeaderNavbar.js"></script>
-    <script src="scripts/provaGrafico.js"></script>
 </head>
 
 <body>
-    <!--INIZIO HEADER-->
-    <div id="header-placeholder"></div>
-    <!--FINE HEADER-->
 
-    <h1>L.I.F.E.</h1>
-    <div>
-        <canvas id="myChart"></canvas>
+    <div class="container mt-5">
+        <div class="row justify-content-center">           
+            <div class="col-md-6 text-center login-container">
+                <div class="logoContainer d-flex mb-3 text-center justify-content-center">
+                    <img src="res/imgs/logo/LIFElogo.png"
+                        alt="Main Logo" class="logo">
+                    <span class="logo-text mx-3">L.I.F.E.</span>
+                </div>
+                <p class="mb-4">
+                    <a href="index.html" class="login-text fs-3">LOGIN</a> / <a href="registrazione.html"
+                        class="registrazione-text fs-5">REGISTRATI</a>
+                </p>              
+                <div class="container">
+                    <div class="alert alert-danger d-none" role="alert" id="errorMessage">
+                        <b>Errore!</b> E-mail o password errate.
+                    </div>                       
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="emailInput" class="visually-hidden">Email</label>
+                            <input type="email" class="form-control formInput" id="emailInput" placeholder="Email"
+                                aria-label="Email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="passInput" class="visually-hidden">Password</label>
+                            <input type="password" class="form-control formInput" id="pwdInput" placeholder="Password"
+                                aria-label="Password">
+                        </div>
+                        <div class="text-center">
+                            <button class="bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold fs-4 mt-3"
+                                tabindex="0">Accedi</button>
+                        </div>
+                    </form>
+                    <p class="forgot-password mt-4 text-center">Password Dimenticata?</p>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!--INIZIO NAVBAR-->
-    <div id="navbar-placeholder"></div>
-    <!--FINE NAVBAR-->
 </body>
-
+<!-- Scripts nostri -->
+<script src="scripts/utils.js"></script>
+<script src="scripts/gestioneUtente.js"></script>
+<script src="scripts/login.js"></script>
 
 </html>

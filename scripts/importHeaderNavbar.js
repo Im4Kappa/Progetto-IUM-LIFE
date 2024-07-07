@@ -15,3 +15,14 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(error => console.error('Error loading the headbar:', error));
 });
+
+
+//verifico se l'utente è loggato
+if(localStorage.getItem('idSessioneUtente'))
+{
+  console.log("OK VAI");
+}
+else
+{
+  window.location.href = 'accessoNegato.html';
+}

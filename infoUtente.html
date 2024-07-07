@@ -83,6 +83,13 @@
                                     placeholder="Password" aria-label="Password">
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-12 mb-4">
+                                <label for="obbiettivoPassiInput">Obbiettivo Passi Giornalieri</label>
+                                <input type="number" class="form-control formInput" id="obbiettivoPassiInput"
+                                    placeholder="Obbiettivo Passi Giornalieri" aria-label="obbiettivoPassiInput">
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <div class="col-md-12 text-center">
                                 <button class="bottonePersonalizzato px-4 py-1 mb-1 text-center fw-bold fs-4 mt-3"
@@ -113,6 +120,7 @@
         document.getElementById('sessoInput').value = utenteCompleto.sessoUtente;
         document.getElementById('altezzaInput').value = utenteCompleto.altezzaUtente;
         document.getElementById('pwdInput').value = utenteCompleto.passwordUtente;
+        document.getElementById('obbiettivoPassiInput').value = utenteCompleto.obbiettivoPassi;
         // Imposta il valore del campo sesso
         let sessoInput = document.getElementById('sessoInput');
         for (let i = 0; i < sessoInput.options.length; i++) {

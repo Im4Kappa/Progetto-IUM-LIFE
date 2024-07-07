@@ -157,9 +157,9 @@
 
     /* SEZIONE PASSI */
     // Ottieni la data corrente
-    const oggi = new Date();
+    let oggi = new Date();
     // Formatta la data come stringa (YYYY-MM-DD)
-    const dataOdierna = oggi.toISOString().slice(0, 10);
+    let dataOdierna = oggi.toISOString().slice(0, 10);
 
     // Percorso del file JSON esterno
     pathToJson = 'data/passiUtenti.json';

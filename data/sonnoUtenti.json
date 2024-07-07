@@ -4,6 +4,10 @@
             "userId": 1,
             "sleepHours": [
                 {
+                    "date": "2024-07-07",
+                    "hours": 8
+                },
+                {
                     "date": "2024-07-03",
                     "hours": 6
                 },

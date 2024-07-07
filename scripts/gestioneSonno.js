@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const oggi = new Date();
-    const dataOdierna = oggi.toISOString().slice(0, 10);
+    let oggi = new Date();
+    let dataOdierna = oggi.toISOString().slice(0, 10);
     let mediaSonno = 0;
     const userId = idSessione;
     //console.log(idSessione);
@@ -176,7 +176,7 @@ function aggiungiOreSonno() {
 }
 
 function getFormattedDate() {
-    const oggi = new Date();
+    let oggi = new Date();
     return oggi.toISOString().slice(0, 10); // Restituisce la data odierna nel formato YYYY-MM-DD
 }
 

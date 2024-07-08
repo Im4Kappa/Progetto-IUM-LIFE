@@ -28,7 +28,7 @@ Clona il repository LIFE nella directory `htdocs` di XAMPP. Ecco un esempio di c
 
 ```bash
 git clone https://github.com/Im4Kappa/Progetto-IUM-LIFE.git
-
+```
 
 Verifica che i file del progetto siano situati in C:\xampp\htdocs\Progetto-IUM-LIFE (per Windows) o /opt/lampp/htdocs/Progetto-IUM-LIFE (per Linux/macOS).
 
@@ -39,7 +39,7 @@ Naviga all'indirizzo http://localhost/Progetto-IUM-LIFE.
 Dovresti visualizzare la pagina principale del progetto LIFE e poter interagire con tutte le funzionalità disponibili.
 Struttura del Progetto
 La struttura del progetto LIFE è la seguente:
-
+```
 Progetto-IUM-LIFE/
 ├── data/
 │   └── alimentazioneGiornalieraUtente.json
@@ -95,9 +95,7 @@ Progetto-IUM-LIFE/
 ├── navbar.html
 ├── registrazione.html
 └── README.md
-
-
-
+```
 ## Contributori
 - **Mario Zaccardi**: [m.zaccardi@studenti.unisa.it]
 - **Alfonso Pollastro**: [a.pollastro@studenti.unisa.it]

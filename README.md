@@ -1,26 +1,34 @@
-README - Progetto LIFE
-Descrizione del Progetto
-LIFE è un progetto sviluppato per l'esame di Interazione Uomo Macchina (IUM). Il progetto si concentra sull'implementazione di principi avanzati di interazione tra l'utente e il sistema, utilizzando tecnologie web.
+# README - Progetto LIFE
 
-Requisiti
-**XAMPP**: XAMPP è necessario per eseguire il progetto su un server locale. Include Apache, MariaDB, PHP e Perl ed è disponibile per Windows, Linux e macOS.
-**Browser Web**: Per visualizzare e interagire con l'interfaccia del progetto.
-**Editor di Testo/IDE**: Per eventuali modifiche al codice sorgente (es. Visual Studio Code, Sublime Text, PHPStorm).
+## Descrizione del Progetto
 
-**Istruzioni per l'Installazione**
+**LIFE** è un progetto sviluppato per l'esame di **Interazione Uomo Macchina (IUM)**. Il progetto si concentra sull'implementazione di principi avanzati di interazione tra l'utente e il sistema, utilizzando tecnologie web.
 
-**Passo 1**: Installazione di XAMPP
-Scarica XAMPP dal sito ufficiale: Apache Friends - XAMPP.
+## Requisiti
+
+- **XAMPP**: XAMPP è necessario per eseguire il progetto su un server locale. Include Apache, MariaDB, PHP e Perl ed è disponibile per Windows, Linux e macOS.
+- **Browser Web**: Per visualizzare e interagire con l'interfaccia del progetto.
+- **Editor di Testo/IDE**: Per eventuali modifiche al codice sorgente (es. Visual Studio Code, Sublime Text, PHPStorm).
+
+## Istruzioni per l'Installazione
+
+### Passo 1: Installazione di XAMPP
+
+Scarica XAMPP dal sito ufficiale: [Apache Friends - XAMPP](https://www.apachefriends.org/index.html).
 Segui le istruzioni di installazione per il tuo sistema operativo.
 
-**Passo 2**: Configurazione di XAMPP
-Avvia il Pannello di Controllo di XAMPP.
-Assicurati che i moduli Apache e MySQL siano avviati cliccando sui pulsanti "Start".
+### Passo 2: Configurazione di XAMPP
 
-**Passo 3**: Preparazione del Progetto
-Clona il repository LIFE nella directory htdocs di XAMPP. Ecco un esempio di come farlo via linea di comando:
+1. Avvia il Pannello di Controllo di XAMPP.
+2. Assicurati che i moduli **Apache** e **MySQL** siano avviati cliccando sui pulsanti "Start".
 
+### Passo 3: Preparazione del Progetto
+
+Clona il repository LIFE nella directory `htdocs` di XAMPP. Ecco un esempio di come farlo via linea di comando:
+
+```bash
 git clone https://github.com/Im4Kappa/Progetto-IUM-LIFE.git
+
 
 Verifica che i file del progetto siano situati in C:\xampp\htdocs\Progetto-IUM-LIFE (per Windows) o /opt/lampp/htdocs/Progetto-IUM-LIFE (per Linux/macOS).
 

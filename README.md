@@ -100,6 +100,7 @@ Progetto-IUM-LIFE/
 - **Mario Zaccardi**: [m.zaccardi@studenti.unisa.it]
 - **Alfonso Pollastro**: [a.pollastro@studenti.unisa.it]
 - **Domenico Arcamone**: [d.arcamone@studenti.unisa.it]
+- **Leeon Gaglioni**: [l.gaglioni@studenti.unisa.it]
 
 
 ## Grazie per aver utilizzato LIFE! In caso di domande o suggerimenti, non esitare a contattarci.

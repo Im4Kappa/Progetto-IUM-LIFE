@@ -102,4 +102,4 @@ Progetto-IUM-LIFE/
 - **Domenico Arcamone**: [d.arcamone@studenti.unisa.it]
 
 
-Grazie per aver utilizzato LIFE! In caso di domande o suggerimenti, non esitare a contattarci.
+## Grazie per aver utilizzato LIFE! In caso di domande o suggerimenti, non esitare a contattarci.
